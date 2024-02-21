@@ -1,7 +1,11 @@
 :doctype: book
 include::file-attributes.inc.adoc[]
 
+
 = {projectname}
+Projektseminar WS 2023/24
+//Prof. Dr. rer. pol. Torsten Munkelt
+//M.Sc. Paul Christ
 
 == Einleitung
 === Vorstellung ALADIN

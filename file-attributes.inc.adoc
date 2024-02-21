@@ -8,3 +8,8 @@
 
 :sectnums:
 :sectnumlevels: 5
+:chapter-signifier:
+
+:toc:
+:toc-title: Inhaltsverzeichnis
+:toclevels: 2
