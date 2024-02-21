@@ -1,0 +1,15 @@
+:doctype: book
+include::../file-attributes.inc.adoc[]
+
+== Aufgabentyp - {chemie}
+
+=== Aufgabenbeschreibung
+
+=== Planung
+
+=== Technische Umsetzung
+
+=== Ergebnisse
+
+=== Ausblick
+

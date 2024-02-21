@@ -1,0 +1,32 @@
+:doctype: book
+include::file-attributes.inc.adoc[]
+
+= {projectname}
+
+== Einleitung
+=== Vorstellung ALADIN
+// TBD
+=== Ziele des Projektseminars
+// TBD
+
+include::FSM/Bericht.adoc[]
+include::ClusterAnalyse/Bericht.adoc[]
+include::DecisionTree/Bericht.adoc[]
+include::RegularExpression/Bericht.adoc[]
+include::Chemie/Bericht.adoc[]
+
+== Reflexion
+=== Jonas Hölzel
+// TBD
+=== Norman Sebastian Arnold
+// TBD
+=== Tanja Dietrich
+// TBD
+=== Alessandra Ruff
+// TBD
+=== Julius Wyrembek
+//TBD
+=== Vincent Weise
+
+== Ausblick
+// TBD

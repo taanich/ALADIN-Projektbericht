@@ -1,0 +1,10 @@
+// Metadaten
+:projectname: ALADIN - Projektbericht
+:chemie: Chemie
+:cluster: Clusteranalyse
+:dt: Entscheidungsbaum
+:fsm: Endlicher Automat
+:regex: Regex Puzzle
+
+:sectnums:
+:sectnumlevels: 5

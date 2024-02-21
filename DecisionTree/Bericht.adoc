@@ -1,0 +1,15 @@
+:doctype: book
+include::../file-attributes.inc.adoc[]
+
+== Aufgabentyp - {dt}
+
+=== Aufgabenbeschreibung
+
+=== Planung
+
+=== Technische Umsetzung
+
+=== Ergebnisse
+
+=== Ausblick
+
