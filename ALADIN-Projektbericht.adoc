@@ -8,8 +8,14 @@ Projektseminar WS 2023/24
 //M.Sc. Paul Christ
 
 == Einleitung
+// Diagramm - Verbindung zwischen ALADIN & CARPET
 === Vorstellung ALADIN
-// TBD
+==== ALADIN
+// Beschreibung ALADIN
+// Beschreibung + Auflistung (Verwendungszweck) der Dateien
+==== CARPET
+// Beschreibung CARPET
+// Beschreibung + Auflistung (Verwendungszweck) der Dateien
 === Ziele des Projektseminars
 // TBD
 

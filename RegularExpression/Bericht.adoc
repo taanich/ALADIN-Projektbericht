@@ -3,7 +3,11 @@ include::../file-attributes.inc.adoc[]
 
 == Aufgabentyp - {regex}
 
+=== Aufgabenstellung
+
 === Aufgabenbeschreibung
+
+=== Anforderung
 
 === Planung
 
