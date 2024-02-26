@@ -9,15 +9,50 @@ Projektseminar WS 2023/24
 
 == Einleitung
 // Diagramm - Verbindung zwischen ALADIN & CARPET
+Die Lehre an einer Universität oder Fachhochschule in Deutschland repräsentiert die höchste Ebene des Bildungssystems und ist darauf ausgerichtet, Studierenden umfassende theoretische Kenntnisse, praktische Fähigkeiten und wissenschaftliche Methodenkompetenz zu vermitteln.
+Um diese Fähigkeiten und Kompetenzen zu erlangen, benötigen die Studierenden vielseitiges Übungsmaterial, um das Wissen zu verinnerlichen.
+
+Daher werden in der Lehre diverse Aufgabenformate benötigt, darunter beispielsweise Übungsaufgaben und Probeklausuren. Jedoch erfordert die Erstellung solcher Aufgaben einen erheblichen Zeitaufwand von Lehrkräften, die in der Regel dazu neigen, die Aufgaben manuell zu erstellen und zu korrigieren. Dies führt zu einer eingeschränkten Variation der Aufgabenstellungen, wodurch Studierende nur wenige oder gar identische Aufgabenformulierungen erhalten.
+Als Konsequenz entsteht ein Mangel an vielfältigen Übungsaufgaben für die effektive Vorbereitung auf Klausuren.
+
+Die Gruppe beschäftigte sich im Zuge des Projektseminars mit der Arbeit an ALADIN, welches eine Plattform für die Erstellung solcher Aufgaben ist.
+ALADIN ermöglicht die zufallsbasierte Generierung von beliebig vielen Aufgaben und erlaubt es den Studierenden, die Aufgaben online zu lösen.
+
 === Vorstellung ALADIN
-==== ALADIN
-// Beschreibung ALADIN
-// Beschreibung + Auflistung (Verwendungszweck) der Dateien
-==== CARPET
-// Beschreibung CARPET
-// Beschreibung + Auflistung (Verwendungszweck) der Dateien
-=== Ziele des Projektseminars
-// TBD
+
+
+ALADIN ist ein Konzept das von Herr Munkelt und Herr Christ erdacht und anschließend überwiegend von Herr Christ entwickelt wurde. Es unterteilt sich in die Backendsoftware "ALADIN" und das dazugehörige Frontend "CARPET" 
+
+ALADIN war zunächst als Akronym für "Generator für Aufgaben und Lösungshilfen aus der Informatik sowie angrenzenden Disziplinen" gedacht
+
+Die aktuelle Ausrichtung von ALADIN liegt auf Aufgabenstellungen aus den Bereichen Produktionswirtschaft, Datenbanken und Projektmanagement.
+
+
+Das Projekt 
+
+Kurze Erklärung Aladin und Carpet zusammenhang
+Aladin ist da und Carpet macht Frontend shit. Carpet ist scuffed aber nicht so schlimm iwe aladin. Btw wenn man irgednwas ändert muss man irgendwas neu starten.
+
+
+
+=== Ablauf des Projektseminars
+
+. *Auswahl eines Aufgabentyps* +
+Die Studierenden wählen zu Beginn des Projektseminars den Aufgabentypen aus, den sie für die Entwicklung in ALADIN umsetzen möchten.
+
+. *Einarbeitung in den Aufgabentyp* +
+In den nächsten Wochen wurde ein generelles Verständnis für das Problem entwickelt und fachliches Wissen angeeignet welches später helfen sollte die Aufgabe in ein Programm umzusetzen.
+
+. *Konzeption und Implementierung eines Prototypen* +
+Folgend wurde zu jedem Konzept ein Prototyp in einer selbst ausgewählten Programmiersprache implementiert. Das Ziel bestand darin ein grundlegendes Verständnis für die Komplexität zu entwickeln und einen Struktur für eine spätere Implementierung in Aladin zu schaffen
+
+. *Umsetzung in ALADIN* +
+ Nachdem jeder Studierende die grundlegenden Funktionen seines Prototpyps in einem externen Programm umgesetzt hatte, begannen sie diesen in das vorhandene ALADIN Framework zu integrieren. Voraussetzung dafür war die Einarbeitung in ALADIN und CARPET, sowie das fundamentale Verständnis über deren Zusammenarbeit.
+
+. *Präsentation des entwickelten Aufgabentyps* +
+Am Ende des Semesters wurden alle bearbeiteten Projekte vorgestellt. 
+Unter den Augen aller Professoren die im Rahmen des Projektseminars ein Projekt betreut haben, konnten Studierende aus anderen Projekte Fragen zu den erbrachten Arbeiten stellen.
+
 
 include::FSM/Bericht.adoc[]
 include::ClusterAnalyse/Bericht.adoc[]
@@ -39,4 +74,18 @@ include::Chemie/Bericht.adoc[]
 === Vincent Weise
 
 == Ausblick
-// TBD
+
+
+=== Integration von weiteren interdisziplinären Aufgaben
+
+Mögliche Aufgabentypen können (müssen aber nicht) aus folgenden Fachbereichen stam-men: Modellierung, z.B. UML-, Geschäftsprozess- oder Datenflussmodellierung, Geoinformatik, z.B. Spatial-SQL-Abfragen, Programmierung oder Musik, z.B. Ton-netzwerke. 
+Eigene Ideen für weitere Anwendungsbereiche, evtl. mit Bezug zu bereits von Ihnen besuchten Lehr-veranstaltungen und dort beobachteten Engpässen an Aufgaben, sind ebenfalls sehr gern gesehen.
+In der nächsten Ausbaustufe soll untersucht werden, ob und wie generative KI-Modelle (bspw. Sprachmodelle wie ChatGPT, „Bild-Modelle“ wie Stable-Diffusion, etc.) bei der Generierung von Aufgaben und Lösung(shilf)en unterstützen können.
+
+=== KI Erweiterung
+
+Durch den gezielten Einsatz von KI, kann auch das ALADIN-Framework profitieren. In ALADIN könnte ein KI-Einsatz zum Beispiel bedeuten, dass die gelösten Aufgaben von der KI ausgewertet werden, oder neue Aufgaben durch die KI generiert werden. Außerdem kann das Feedback der Nutzer, wenn bereits integriert, ausgewertet werden um die Qualität der Aufgaben zu erhöhen, aber auch die Lösungshilfen könnten dynamisch mit KI-Einsatz generiert werden.
+
+=== Tracking des Lernfortschritts
+
+=== ALADIN als Wissensvermittlungsplattform
