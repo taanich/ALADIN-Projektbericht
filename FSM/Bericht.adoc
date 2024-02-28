@@ -1,20 +1,124 @@
 :doctype: book
 include::../file-attributes.inc.adoc[]
-:imagesdir: images
+:imagesdir: FSM/img
+
 
 == Aufgabentyp - {fsm}
 
-=== Aufgabenstellung
+=== Motivation
+Finite State Machines (FSMs) spielen eine zentrale Rolle in der Informatik und sind ein grundlegendes Konzept für das Verständnis und die Entwicklung von Software-Systemen. In der Praxis finden sie Anwendung bei der Steuerung von Verkehrsampeln, der Analyse und Verarbeitung von Text mit regulären Ausdrücken und bei der Implementierung von Programmiersprachen. FSMs ermöglichen es, das Verhalten von Systemen anhand von Zuständen und Übergängen präzise zu modellieren, was für das Design und die Analyse von Algorithmen sowie für das Erlernen grundlegender Konzepte der Informatik unerlässlich ist. Durch Abstraktion bieten FSMs einen Zugang zum Verständnis komplexer Systeme. Die Modellierung von komplexen Systemen und Prozessen durch FSMs ist ein wesentliches Werkzeug für Informatiker und trägt wesentlich zum Fortschritt in der Technologie bei.
+
 
 === Aufgabenbeschreibung
+Die Aufgabe war es ALADIN um eine Aufgabe zu Endlichen Automaten zu erweitern. Dort soll es möglich sein, mehrere Aufgaben in ausgewählten Schwierigkeitsgraden zu dem Typ FSM zu generieren. Mögliche zu implementierende Aufgaben waren zum einen das Erzeugen des Zustandsdiagramms und lösen der Zustandstabelle bzw. umgekehrt. Oder das Erzeugen des Zustandsdiagramms und das angeben des zugehörigen input als regulären Ausdruck. Auch kann die Verarbeitbarkeit eines eingegebenen Wortes durch den Automaten überprüft werden.
 
 === Anforderung
+Basierend auf der Aufgabenstellung ergeben sich folgende Anforderungen an das Programm:
+
+. Der Nutzer soll auswählen können, wie viele Aufgaben und in welchen Schwierigkeitsgraden generiert werden sollen.
+
+. Zu jeder Aufgabe soll ein zufälliger Endlicher Automaten generiert werden. Der dem vorher ausgewählten Schwierigkeitsgrad entspricht. Es soll also die Größe des Automaten variabel sein.
+
+. Der Automat soll als Graph dargestellt werden.
+
+. Es soll eine Zustandsübergangstabelle mit Lücken generiert werden, die vom Nutzer ausgefüllt werden muss. Diese Tabelle muss dann validiert werden. Auch das eingeben eines regulären Ausdrucks und eines Wortes, das der Automat akzeptiert, soll validiert werden.
+
+. Hat der Nutzer alle aufgaben bearbeitet, soll ihm eine Übersicht über die erreichten Punkte angezeigt werden.
+
 
 === Planung
+Anhand von diesen Anforderungen, habe ich das Projekt in folgende Schritte unterteilt:
+
+. Generierung eines zufälligen FSMs mit einer variablen Größe. Das bedeutet die Anzahl der Zustände und Übergänge soll variabel sein und je nach Schwierigkeitsgrad wachsen.
+
+. Erstellung einer Zustandsübergangstabelle, die zur Validierung der Nutzereingabe dienen soll.
+
+. Implementierung des User-Interfaces, das dem Nutzer die Möglichkeit gibt, die Aufgaben zu generieren, zu bearbeiten und die erreichten Punkte anzuzeigen.
 
 === Technische Umsetzung
 
-=== Ergebnisse
+==== Mockups
+Als erstes habe ich mir Gedanken gemacht, wie der Nutzer mit dem Programm interagiert und wie die Aufgaben auszusehen haben. Dafür habe ich in Figma ein paar Mockups erstellt, die mir als Vorlage für die Implementierung dienen sollten. Zum generieren der Aufgaben gibt es zwei Slider, einen um die Anzahl der zu generierenden Aufgaben auszuwählen und einen um den Schwierigkeitsgrad auszuwählen. Die Aufgaben bestehen dann aus dem Graphen des FSMs und einer Zustandsübergangstabelle, die vom Nutzer ausgefüllt werden muss bzw der Zustandsübergangstabelle und einem Editor, in dem der Nutzer den zugehörigen Graphen erstellen soll. Über die Buttons unten kann der Nutzer zwischen den Aufgaben navigieren.
 
-=== Ausblick
+image:Mockup_1.png[]
 
+image:Mockup_2.png[]
+
+image:Mockup_3.png[]
+
+==== Konzeption und Recherche
+Angefangen habe ich damit, dass ich mir selbst eine Adjazensmatrix erstellt habe und in einer Konsolenanwendung aus der Matrix dann einmal einen Graphen und eine Zustandsübergangstabelle generiert habe. Der Graph wurde dann in der Dot-Sprache beschrieben, ausgegeben und mit dem Online-Tool https://edotor.net/[Edotor] dargestellt.
+
+Um den FSM aber zufällig zu generieren war mein erster Ansatz die Adjazensmatrix zufällig zu generieren. Das hat aber nicht so gut funktioniert, da nicht garantiert werden konnte, dass der Automat auch wirklich zusammenhängend ist. Außerdem darf es keine unerreichbare Knoten und keine "Sackgassen" geben. Zudem darf von einem Knoten nicht zweimal die gleich Kante zu verschiedenen anderen Knoten führen, da es sich sonst um einen nichtdeterministischen Automaten handeln würde. Da auch noch die Anzahl der Zustände und Übergänge variabel sein soll, gab es viele Edge-Cases, die beachtet werden mussten.
+
+Ich habe viele verschiedene Ansätze ausprobiert unter anderem den Minimum-Spanning-Tree Algorithmus, aber keiner hat so funktioniert, dass 100% der Zeit ein brauchbarer Automat generiert wurde. Nach vielem Ausprobieren, kam mir die Idee nicht den Automaten zufällig zu generieren, sondern einen Regex zufällig zu generieren und aus diesem dann den Automaten zu generieren. Das hat dann auch funktioniert.
+
+Bei meiner Recherche bin ich auf die "https://github.com/izuzak/noam[Noam]"-Bibliothek gestoßen, die es ermöglicht Graphen, anhand von einem Regex, zu generieren. Ausgegeben wird der Graph dann in der Dot-Sprache und kann dann wieder mit Edotor oder beispielsweise mit https://graphviz.org/[Graphviz] gerendert werden.
+
+==== Implementierung in ALADIN
+Die einrichtung von ALADIN war auf meinem Mac leider sehr mühsam, es braucht eine spezielle Node-Version, die mit Macs mit M1-Chip kompatibel ist. Mit der Hilfe von Herrn Christ habe ich es dann zum Laufen bekommen. Allerdings hat sich nach einem Update wieder eine inkompatible Version installiert und ich habe sehr viel Zeit damit verbracht, ALADIN wieder zum Laufen zu bringen. Da die Zeit dann sehr Knapp wurde und wir nur noch wenige Wochen bis zu der Präsentation hatten, habe ich mich dazu entschieden, ein anderes Framework zu verwenden.
+
+Meine Entscheidung fiel auf Flutter, da ich damit sehr viel Erfahrung habe und auch schon eine eigene App mit Flutter entwickelt und veröffentlicht habe.
+
+==== Implementierung in Flutter
+Flutter ist ein Framework von Google um plattformübergreifende Apps zu entwickeln. Im Fokus liegt dabei die Entwicklung von Android und iOS Apps. Aber auch Web-Apps und Desktop-Apps sind möglich. Flutter verwendet die Programmiersprache Dart, die von Google als Konkurrent zu TypeScript entwickelt wurde.
+
+Ich habe also ein Flutter-Projekt erstellt: 
+
+image:Projektstruktur.png[]
+
+Durch die Verwendung von Flutter konnte ich leider nicht auf die in ALADIN schon integrierten Funktionen zurückgreifen, sondern musste vieles erst mal selbst implementieren. Gerade bei der UI musste ich von Null anfangen. Das hat mir aber auch die Möglichkeit gegeben, die UI so zu gestalten, wie ich es mir vorgestellt habe.
+
+Die UI war auch schnell umgesetzt und es war möglich die Einstellungen für die Generierung der Aufgaben vorzunehmen und sich durch einen leeren Fragenkatalog zu klicken.
+
+==== User-Interface
+Das User-Interface besteht aus drei Seiten: Der Startseite, wo die Einstellungen zum Generieren der Aufgaben vorgenommen werden können. Es gib zwei Slider, einen um die Anzahl der zu generierenden Aufgaben auszuwählen und einen um den Schwierigkeitsgrad einzugrenzen. Außerdem gibt es einen Button, um die Aufgaben zu generieren. Beim Drücken diese Buttons werden im Hintergrund die Aufgaben generiert und Es wird auf die nächste Seite weiter navigiert. Diese Seite stellt dann die erste Aufgabe da. Oben wird die Aufgabenstellung angezeigt, in der Mitte der Graph und darunter die Zustandsübergangstabelle. Rechts der Tabelle sind noch zwei Textfelder. Eins zum Angeben eines Wortes, welches vom Automaten akzeptiert wird und ein weiteres, wo der Regex dem der Automat entspricht angegeben werden soll. Am unteren Rand sind noch zwei Buttons um zwischen den Aufgaben zu navigieren. Ist man an der letzten Aufgabe angekommen, gelangt man über den Weiter-Button auf eine weitere Seite. Hier wird eine Übersicht über die erreichten Punkte angezeigt.
+
+image:UI_1.png[]
+image:UI_2.png[]
+image:UI_3.png[]
+
+
+
+==== Generierung der Aufgaben
+Nun muss das Aufgaben-Set erstellt werden. Dafür habe ich eine Klasse `QuestionSetGenerator` erstellt. Diese Klasse kann dann mit Hilfe der des `QuestionGenerator` 's eine Liste an `Questions` erstellen. Dafür wird der `QuestionGenerator` so oft aufgerufen, wie Aufgaben generiert werden sollen. Die generierten Aufgaben werden dann einer Liste angehängt. Dem Generator wird der Schwierigkeitsgrad übergeben, dieser wird zufällig innerhalb der Range, die vom Nutzer eingestellt wurde gewählt. Der `QuestionGenerator` generiert dann mit dem `FsmGenerator` den Dot-Code für den FSM.
+
+Zur Generierung des FSMs musste ich dann die Noam-Library einbinden. Das war nochmal eine Herausforderung, da diese Library eine JavaScript Library ist und sie so nicht direkt in Dart verwendet werden kann. Also habe ich erstmal nach ähnlichen Libraries für Dart gesucht, bin da allerdings nicht fündig geworden. Auch mein Versuch die Library von ChatGPT umzuschreiben hat nicht funktioniert. Dies selbst zu machen hielt ich bei dem Umfang der Library auch für keine gute Idee. Also habe ich einen Wrapper um die, für mich notwendigen Funktionen in JavaScript geschrieben. Die Datei befindet sich unter `web/fsm_generator.js`. Flutter-Web kann über ein JavaScript-Interop die JavaScript Funktionen der Datei im Browser ausführen. Dafür müssen die `fsm_generator.js`-Datei und die Noam-Library in die index.html als Script-Tag eingebunden werden.
+
+image:index.html.png[]
+
+So gelang es mir dann die Noam-Library in Dart zu verwenden und den Dot-Code für den FSM zu generieren. Zunächst wird der zufällige Regex generiert, der dann verwendet wird, um einen Automaten zu generieren. Der generierte Automat ist ein eNFA, der dann in mehreren Schritten in einen DFA umgewandelt wird. Die Noam Library stellt die erforderlichen Funktionen bereit. Der DFA wird dann in der Dot-Sprache ausgegeben und zusammen mit dem Regex an den `QuestionGenerator` zurückgegeben.
+
+==== Darstellung des FSMs
+Da es in Flutter keinen nativen Dot-Renderer gibt, wird für die Darstellung die Seite quickchart.io verwendet. Sie bietet eine API an, die es ermöglicht, einen Graphen in der Dot-Sprache zu rendern und als SVG zurückzugeben. Das SVG kann dann in Flutter angezeigt werden. Dafür wird in der Klasse `QuickchartGraphviz` eine HTTP-Request URL generiert, beim Aufrufen gibt diese dann das SVG zurück. Dieses SVG wird dann in einem `SvgPicture`-Widget angezeigt.
+
+==== Generierung und Validierung der Zustandsübergangstabelle
+Die Zustandsübergangstabelle hat drei Spalten: 'State', 'Input' und 'Next State'. Die Spalte 'Next State' ist leer und muss vom Nutzer ausgefüllt werden. Dort muss eingetragen werden zu welchem Zustand man kommt, wenn man sich in dem Zustand aus der Spalte 'State' befindet und als Input eins der Zeichen aus der Spalte 'Input' bekommt. Da es für das erstellen der Tabelle notwendig war, durch den Graphen zu navigieren, habe ich den Dot-Code mit Hilfe der Library https://pub.dev/packages/graphviz2/example[graphviz2] in Objekte konvertiert. Durch diese Objekte konnte wird dann durch iteriert um die Tabelle generieren. Um das Durchnavigieren zu vereinfachen habe ich die Klasse `GraphvizHelper` erstellt. Die Tabelle wird durch zwei for-Schleifen generiert. Die erste Schleife iteriert über die Knoten und die zweite Schleife iteriert über die Kanten jedes Knotens. Daraus werden dann die Zeilen der Tabelle generiert.
+
+image:questin_view_build_table.png[]
+
+Das Validieren geschieht indem geprüft wird ob die Kante von dem Zustand aus 'State' mit dem Input aus 'Input' zu dem gleichen Zustand führt wie der der in 'Next State' angegeben wurde. Es gibt pro Lücke einen Punkt. Ist das Feld richtig, wird in der Liste `validationState` an der zugehörigen Stelle eine eins eingetragen.
+
+==== Validierung des Regexes und des Wortes
+Neben der Tabelle gibt es noch zwei weitere Text Felder. In dem einen muss der Nutzer den Regex eingeben, der den Automaten beschreibt und in dem anderen ein Wort, welches der Automat akzeptiert. Beide Felder werden validiert und bekommen zwei Punkte wenn sie richtig sind. 
+
+Bei dem Regex handelt sich hier nicht um den herkömmlichen Regex, sondern um eine vereinfachte Version, da dieser mit der Noam-Library kompatibel sein muss. Der Rexex akzeptiert Groß- und Kleinbuchstaben und die Ziffern 0 bis 9. Außerdem versteht er die Operatoren `(`, `)`, `$` als White-Space, `+` als 'ODER' und `*` als Kleene-Stern. Der eingegebene Regex wird dann mit dem Regex aus dem auch der Automat generiert wurde verglichen. Das ist nicht der optimale Weg, da es auch Regexes gibt, die den gleichen Automaten beschreiben, aber nicht gleich sind. Das wäre ein Punkt, den ich in Zukunft noch verbessern könnte.
+
+Um das eingegebene Wort zu validieren, wird sich durch die Knoten des Automaten gehangelt bis der Knoten an dem wir uns befinden keine Kante mit dem nächsten Buchstaben des Wortes besitzt oder das Ende des Wortes erreicht wurde. Dann wird geprüft ob der Knoten in dem wir uns befinden ein Endzustand ist. Ist das der Fall, ist das Wort korrekt. Das passiert in der Klasse `RegexValidator`.
+
+image:regex_validator.png[]
+
+==== Punkteübersicht
+Die erreichten Punkte werden dann auf der `SummaryPage` dargestellt. Dort werden die pro Aufgabe erreichten Punkte und die mögliche Gesamtpunktzahl angezeigt. Drunter wird dann die erreichte Gesamtpunktzahl über alle Aufgaben angezeigt. Über den Button 'Back to Generator' gelangt man wieder zurück zur Startseite.
+
+==== Ausführen des Programms
+Um das Programm zu starten, muss zuerst Flutter installiert werden. Eine Anleitung dazu gibt es auf der offiziellen Website von Flutter: https://docs.flutter.dev/get-started/install. Ist Flutter installiert, kann das Projekt mit dem Befehl `flutter run -d chrome` ausgeführt werden. Zum entwickeln empfiehlt sich Android Studio alternativ gibt es auch ein Flutter-Plugin für Visual Studio Code. In Android Studio kann das Projekt auch direkt über den Debugger gestartet werden:
+
+image:run_project.png[]
+
+=== Ergebnis und Ausblick
+Das Programm hat eine schlichte und übersichtliche Oberfläche und ermöglicht dem Nutzer, ein Verständnis für Endliche Automaten zu entwickeln. Es generiert zufällige Aufgaben, ohne auf einen Datensatz an Beispielaufgaben zurückzugreifen. Das Programm legt den Grundstein für weitere Aufgaben, die sich mit Endlichen Automaten beschäftigen. Weitere Möglichkeiten für Aufgaben wären es, dem Nutzer einen Editor zur Verfügung zu stellen, mit dem er den Automaten anhand der Zustandsübergangstabelle oder des Regex selbst erstellen kann. Beim Generieren könnten noch weitere Einstellungen vorgenommen werden, wie zum Beispiel zwischen minimalen und nicht minimalen Automaten zu wählen und NFAs zu generieren. 
+
+Außerdem müsste die Validierung des Regex verbessert werden. Eine mögliche Lösung dafür wäre es den Automaten aus dem angegebenen Regex zu generieren, zu minimieren und mit dem minimalen ursprünglichen Automaten verglichen.
+
+Flutter als Alternative zu wählen, hat es mir ermöglicht, mich auf die Generierung der Aufgaben zu konzentrieren und die UI so zu gestalten, wie ich es mir vorgestellt habe. Die Implementierung in Flutter war sehr angenehm und hat mir viel Spaß gemacht. Ich konnte mein Vorwissen gut anwenden und habe auch viel neues, wie zum Beispiel das einbinden einer JavaScript-Library, gelernt. Auch denke ich, dass die überführung des Projektes in ALADIN durch die Ähnlichkeiten von Dart und TypeScript nicht allzu schwer sein wird. Es würde auf jeden Fall das einbinden der Noam-Library erleichtern, da diese auch als npm-Package verfügbar ist.

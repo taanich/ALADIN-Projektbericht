@@ -61,8 +61,18 @@ include::RegularExpression/Bericht.adoc[]
 include::Chemie/Bericht.adoc[]
 
 == Reflexion
+
 === Jonas Hölzel
-// TBD
+Rückblickend betrachtet, muss ich sagen, dass ich anfangs das zufällige Generieren des Automaten deutlich unterschätzt haben und mich mit dem Ansatz dies über den Graphen zu machen etwas verrannt habe. Ich habe sehr viel Zeit aufgewandt, verschiedene Algorithmen und Ideen auszuprobieren, hatte aber keinen Erfolg. Das hat mich sehr frustriert und es hat meine Motivation für dieses Projekt etwas beeinflusst. Als ich dann aber einen neuen Ansatz gefunden habe, hat sich das geändert. Ich habe wieder Spaß an dem Projekt gefunden und konnte mich wieder besser auf die Umsetzung der Aufgaben konzentrieren. 
+
+Auch die Präsentation des Projektes vor den anderen Studierenden hat mir Spaß gemacht und ich finde, dass wir da als Team gut zusammen gearbeitet haben. Die Präsentation hat mich zwar auch etwas an Überwindung gekostet, dennoch fand ich es auch eine sehr gute Gelegenheit das Präsentieren vor Publikum zu üben. Dem Feedback der anderen Studierenden habe ich entnommen, dass sie das Projekt und die Idee dahinter interessant fanden.
+
+Ich hätte mir generell in dem Projekt mehr Teamarbeit gewünscht. Es gab zwar das Chemie-Zweier-Team aber wir anderen haben doch eher jeder für sich gearbeitet. Wir konnten uns zwar untereinander austauschen, aber mit mehreren Leuten direkt in einem Team zu arbeiten ist doch nochmal was anderes. 
+
+Aus den anfänglichen Schwierigkeiten habe ich gelernt, dass es wichtig ist, sich nicht zu sehr in eine Sackgasse zu verrennen und auch mal einen anderen Ansatz zu probieren und das Problem von weiter weg zu betrachten. Auch nehme ich mit, dass es wichtig ist, sich Hilfe zu suchen. Ich bin jemand, der sehr ehrgeizig versucht Dinge ohne Hilfe zu lösen. Das versuche ich in Zukunft zu ändern.
+
+Denn noch bin ich mit meinem Ergebnis zufrieden und denke, dass ich ein gutes Projekt abgeliefert habe, was die Möglichkeit für weitere Features bietet. Ich habe viel gelernt und konnte mein Wissen anwenden. Auch fand ich das Thema Automaten sehr interessant und bin mir sicher, dass ich von dem gesammelten Wissen in Zukunft nochmal Gebrauch machen werde.
+
 === Norman Sebastian Arnold
 // TBD
 === Tanja Dietrich
