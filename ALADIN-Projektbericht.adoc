@@ -66,7 +66,14 @@ include::Chemie/Bericht.adoc[]
 === Norman Sebastian Arnold
 // TBD
 === Tanja Dietrich
-// TBD
+Im Rahmen des Projektseminars konnte ich wertvolle Erfahrungen sammeln und meine Kenntnisse vertiefen, im Hinblick auf die eigenständige Entwicklung einer generativen Aufgabe unter Berücksichtigung vorgegebener Anforderungen. Die Konzeptionsphase erwies sich für mich als entscheidender Schritt, in dem ich lernen musste, wie die Strukturierung eines Aufgabentyps für die Berechnung eines Entscheidungsbaums erfolgt und welche Komponenten dabei erforderlich sind. Im Rückblick erkenne ich, dass eine strukturierte Vorgehensweise für die Umsetzung in ALADIN ebenso hilfreich gewesen wäre, um den Aufgabentyp technisch effizient umzusetzen. Der implementierte Code hätte durch eine klare Strukturierung von Klassen und Funktionen deutlich übersichtlicher und verständlicher gestaltet werden können. Diese Erkenntnis nehme ich als wertvolle Lektion für kommende Projekte aus dem Projektseminar mit.
+
+Die Einarbeitung in ALADIN stellte eine Herausforderung dar, besonders aufgrund meiner begrenzten Programmierkenntnisse. Die anfängliche Einführung ermöglichte zwar einen groben Einblick in die Implementierung unserer Aufgabentypen in ALADIN, jedoch fehlte mir eine umfassende Dokumentation, die eine selbstständige und gezielte Einarbeitung in das Framework ermöglicht hätte. Dies führte zu hohem Zeitaufwand in der Einarbeitung, insbesondere zu Beginn der Implementierung, um das erforderliche Verständnis aufzubauen. Erst gegen Ende des Semesters klärte sich ansatzweise das Konzept, was schließlich die Umsetzung der Funktionalitäten in ALADIN ermöglichte.
+
+Ein weiterer Aspekt war die Einzelarbeit im Projektseminar, da es besonders zu Beginn des Semesters kaum zu einem Austausch innerhalb der Gruppe kam. Probleme wurden eigenständig und allein bewältigt. Ein verstärkter Austausch und gemeinsame Problemlösungen hätten aus meiner Sicht zu einer produktiveren Arbeitsweise führen können. Erst gegen Ende des Semesters wurde die Gruppendynamik besser genutzt, insbesondere bei der gemeinsamen Bearbeitung der Präsentation und des Projektberichts. Eine mögliche Idee wäre, dass für die Entwicklung eines Aufgabentyps möglicherweise mindestens zwei Studierende zusammenarbeiten. Dadurch hätte nicht nur die Effektivität der Aufgabenbewältigung verbessert werden können, sondern es hätte auch die Möglichkeit eröffnet, Problemstellungen, insbesondere bei der Implementierung in ALADIN gemeinsam zu lösen, wie auch verschiedene Umsetzungsansätze zu diskutieren und mögliche weitere Aufgabenstellungen umzusetzen.
+
+Trotz der Herausforderungen war die Teilnahme am ALADIN Projektseminar eine wertvolle und lehrreiche Erfahrung. Die gewonnenen Erkenntnisse werden mir bei zukünftigen Projekten von großem Nutzen sein.
+
 === Alessandra Ruff
 // TBD
 === Julius Wyrembek

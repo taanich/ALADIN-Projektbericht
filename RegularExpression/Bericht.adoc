@@ -1,5 +1,6 @@
 :doctype: book
 include::../file-attributes.inc.adoc[]
+:imagesdir: images
 
 == Aufgabentyp - {regex}
 
