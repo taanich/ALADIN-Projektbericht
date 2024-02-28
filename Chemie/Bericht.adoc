@@ -52,6 +52,16 @@ Auf der zweiten Seite wird der Nutzer aufgefordert, das chemische Hauptprodukt s
 
 === Ergebnisse
 
+|===
+| Anforderung | Status
+
+| Geben Sie den Ort der Zweitsubstitution in einer elektrophilen aromatischen Substitution an! | gelöst (mittels eines Dropdown Feldes welches die Eingabe des Studenten erwartet)
+| Zeichnen Sie das zu erwartende Hauptprodukt.| gelöst (mittels einbinden des JSME-Editors)
+| Erwarten Sie eine Überreaktion des Erstprodukts unter den gegebenen Reaktionsbedingungen | gelöst (mittels eines Dropdown Feldes welches die Eingabe des Studenten erwartet)
+| Validierung der, von dem Studenten, eingegeben Daten | teilweise gelöst (mittels Validierungsfunktionen zum Abgleich der Eingaben mit der richtigen Lösung)
+
+|===
+
 Die Umsetzung in Aladin und Carpet stellte den umfangreichsten Teil unserer Arbeit dar. Dabei war die Unterstützung von Herrn Christ von entscheidender Bedeutung, um ein fundiertes Verständnis für die beiden Frameworks zu entwickeln. Seine Kenntnisse halfen uns, die Herausforderungen zu bewältigen und die Funktionalitäten effektiv zu nutzen. Durch die Strukturierung der Probleme in zwei Bereiche konnten wir die Aufgaben klar unterteilen und effizient bearbeiten. Diese Herangehensweise ermöglichte eine gezielte Umsetzung und trug maßgeblich zum Erfolg des Projekts bei.
 Positiv betrachtet ermöglichten Aladin und Carpet eine umfassende Realisierung unserer Ziele und boten vielfältige Möglichkeiten zur Gestaltung und Implementierung.
 
@@ -63,3 +73,4 @@ Während des Projekts traten verschiedene Probleme und Herausforderungen auf. Di
 
 Das Programm stellt eine akzeptable Basis für eine Weiterentwicklung dar. Die Implementierung in Java besitzt geringe Komplexität und lässt sich schnell überarbeiten und entsprechend anpassen. Weiterhin sind alle notwendigen Komponenten in Aladin implementiert, sowie alle Schnittstellen, die dazu dienen, eine lauffähige Oberfläche zu erzeugen. Eine Erweiterung, die bereits teilweise implementiert ist, ist die Erweiterung um verschiedene mögliche Reagenzien. Das Programm arbeitet bereits mit einer Json-Datei, in welcher besagte Stoffe übergeben werden, jedoch sind diese aus chemischer Sicht nicht vollständig korrekt, sondern wurden lediglich aus informatischer Sicht für Testzwecke verwendet. Sollte eine Variation der Reagenz in Zukunft hinzugefügt werden, so müsste die Jar-Datei inhaltlich, chemisch korrekt, angepasst werden, um korrekte Ergebnisse liefern zu können. 
 Weiterhin könnte der Nutzer auch weitere Reaktionsparameter, auch im Zusammenhang mit weiteren Reagenzien, abgefragt werden. Dazu müsste die Anzeige der Aufgabenstellung entsprechend verändert und eine Eingabe für den Nutzer geschaffen werden. Dazu bietet sich die bereits existierende Komponente, die die Dropdown Felder enthält an, es gibt jedoch auch eine Reihe weiterer Komponenten, die für solche Zwecke eine potentielle Lösung darstellen könnten.  
+
