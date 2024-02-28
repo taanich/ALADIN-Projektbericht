@@ -77,7 +77,11 @@ Trotz der Herausforderungen war die Teilnahme am ALADIN Projektseminar eine wert
 === Alessandra Ruff
 // TBD
 === Julius Wyrembek
-//TBD
+
+Rückblickend betrachtet kann ich sagen, dass es ein sehr gutes Gefühl ist, positives Feedback von seinem Auftraggeber zu bekommen, nachdem man sich lange mit einer Aufgabe befasst hat. Während des gesamten Arbeitens an dem Projekt ist mir aufgefallen, dass es viel angenehmer ist, ein Programm mit realem Sachbezug zu entwickeln, bei dem man ständig Rückmeldung bekommt. Dies war möglich durch eine gute Strukturierung des Projektes, bei der wöchentliche Treffen durchgeführt wurden, um den aktuellen Stand der einzelnen Projekte vorzutragen. 
+Eine Aufgabe selbst zu wählen, von der man fachlich anfangs keine Ahnung hatte, war für mich und Vincent Weise im ersten Moment reizvoll. Schon schnell wurde mir klar, dass es kein Vorteil war, Chemie in der Oberstufe abgewählt zu haben. Doch in Zusammenarbeit mit Herrn Prof. Teichert konnten wir innerhalb kürzester Zeit einen Einblick in den Bereich der Organischen Chemie bekommen, was uns helfen sollte, die Aufgabe zu erledigen. Eine Idee, wie wir es schaffen, eine zufällig ausgewählte Substitutionsreaktion in ein Framework einzubinden, war schnell entwickelt. Eine viel größere Hürde war für mich die Einarbeitung in die Frameworks Aladin und Carpet. 
+Schlussendlich konnte ich mir dadurch neue technische Inhalte in den vergangenen Wochen aneignen. Zum einen habe ich erfolgreich Vue.js angewendet und meine Kenntnisse im Framework sowie in der Nutzung von JavaScript gefestigt. Da wir unser Backendprogramm mittels Java geschrieben haben, konnte ich auch dort mein Know-how erweitern. Schlussendlich kann ich von der Zeit wichtige Punkte in Sachen Projektorganisation im Team mitnehmen, sowohl das Koordinieren von Ressourcen als auch die Arbeitsverteilung nach individuellen Stärken.
+
 === Vincent Weise
 //TBD
 
