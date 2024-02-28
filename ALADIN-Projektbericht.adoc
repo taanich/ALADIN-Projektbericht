@@ -18,9 +18,9 @@ Daher werden in der Lehre diverse Aufgabenformate benötigt, darunter beispielsw
 
 //ALADIN ermöglicht die zufallsbasierte Generierung von beliebig vielen Aufgaben und erlaubt es den Studierenden, die Aufgaben online zu lösen.
 
-Die Bezeichung ALADIN steht als Akronym für "Generator für Aufgaben und Lösungshilfen aus der Informatik sowie angrenzenden Disziplinen". Dieser Generator wurde entwickelt, um die zufallsbasierte Generierung von einer Vielzahl von Aufgaben zu ermöglichen. Studierende erhalten somit die Möglichkeit, diese Aufgaben online zu lösen.
+Die Bezeichnung ALADIN steht als Akronym für "Generator für Aufgaben und Lösungshilfen aus der Informatik sowie angrenzenden Disziplinen". Dieser Generator wurde entwickelt, um die zufallsbasierte Generierung von einer Vielzahl von Aufgaben zu ermöglichen. Studierende erhalten somit die Möglichkeit, diese Aufgaben online zu lösen.
 
-Die aktuelle Ausrichtung von ALADIN liegt auf Aufgabenstellungen, die primär aus den Bereichen Produktionswirtschaft, Datenbanken und Projektmanagement stammen. Im Rahmen des Projektseminars soll gezeigt werden, dass ALADIN Aufgabenbereiche aus interdisziplinären Fachgebieten eingesetzt werden kann, um die Vielseitigkeir und Anwendungsbreite von ALADIN hervorzuheben. Dies soll zur Digitalisierung der Lehre beitragen.
+Die aktuelle Ausrichtung von ALADIN liegt auf Aufgabenstellungen, die primär aus den Bereichen Produktionswirtschaft, Datenbanken und Projektmanagement stammen. Im Rahmen des Projektseminars soll gezeigt werden, dass ALADIN Aufgabenbereiche aus interdisziplinären Fachgebieten eingesetzt werden kann, um die Vielseitigkeit und Anwendungsbreite von ALADIN hervorzuheben. Dies soll zur Digitalisierung der Lehre beitragen.
 
 
 Die Software unterteilt sich in zwei Bereiche. Jeder Bereich hat dabei ein eigenes Framework. Das Framework für das Backend, mit welchem die Aufgaben sowie die Lösungen generiert werden heißt ALADIN. Für den zweiten Bereich (das Frontend)
@@ -30,7 +30,7 @@ image::PB_01_Diagramm.png[title=""]
 
 === Projektseminar
 
-Im Rahmen des Projektseminars setzte sich die Gruppe, bestehend aus sechs Studierenden, mit der Entwicklung von Aufgabengeneratoren in ALADIN auseinander. Die Zielsetzung war die Erarbeitung und Umsetzung von Generatoren, wobei die Mehrheit der Teilnehmer selbständig an der Entwicklung eines Generators beteilugt war.
+Im Rahmen des Projektseminars setzte sich die Gruppe, bestehend aus sechs Studierenden, mit der Entwicklung von Aufgabengeneratoren in ALADIN auseinander. Die Zielsetzung war die Erarbeitung und Umsetzung von Generatoren, wobei die Mehrheit der Teilnehmer selbständig an der Entwicklung eines Generators beteiligt war.
 
 ==== Ziel des Projektseminars
 Das Ziel des Projektseminars besteht darin, die Erforschung und Umsetzung neuer Aufgabentypen in der ALADIN-Umgebung. Der Fokus liegt dabei auf die Entwicklung generativer Aufgabentypen. 
@@ -47,7 +47,7 @@ In den nächsten Wochen wurde ein generelles Verständnis für das Problem entwi
 Folgend wurde zu jedem Konzept ein Prototyp in einer selbst ausgewählten Programmiersprache implementiert. Das Ziel bestand darin ein grundlegendes Verständnis für die Komplexität zu entwickeln und einen Struktur für eine spätere Implementierung in Aladin zu schaffen
 
 . *Umsetzung in ALADIN* +
- Nachdem jeder Studierende die grundlegenden Funktionen seines Prototpyps in einem externen Programm umgesetzt hatte, begannen sie diesen in das vorhandene ALADIN Framework zu integrieren. Voraussetzung dafür war die Einarbeitung in ALADIN und CARPET, sowie das fundamentale Verständnis über deren Zusammenarbeit.
+ Nachdem jeder Studierende die grundlegenden Funktionen seines Prototyps in einem externen Programm umgesetzt hatte, begannen sie diesen in das vorhandene ALADIN Framework zu integrieren. Voraussetzung dafür war die Einarbeitung in ALADIN und CARPET, sowie das fundamentale Verständnis über deren Zusammenarbeit.
 
 . *Präsentation des entwickelten Aufgabentyps* +
 Am Ende des Semesters wurden alle bearbeiteten Projekte vor den anderen Studierenden vorgestellt. 
@@ -112,7 +112,7 @@ Damit der Lernprozess für jeden Studierenden individualisiert werden kann, wär
 
 === ALADIN als Wissensvermittlungsplattform
 
-Um ALADINs Vielfalt zu erweitern, wäre es sinnvoll, zusätzlich zu den Übungen auch Lernmaterialien zur Verfügung zu stellen. Dadurch könnten Studierende nicht nur ihr bereits vorhandenes Wissen festigen, sondern sich auch neues Wissen aneignen. Eine Kombination aus theoretischem Wissen über ein bestimmtes Thema und anschließendem praktischem Üben würde den Studierenden helfen, Lehrmaterialien aus dem Studium besser zu verstehen und zu verinnerlichen. Diese könnten kontinuirlich aktualisiert werden, sodass ALADIN den wandelnden Anforderungen gerecht wird.
+Um ALADINs Vielfalt zu erweitern, wäre es sinnvoll, zusätzlich zu den Übungen auch Lernmaterialien zur Verfügung zu stellen. Dadurch könnten Studierende nicht nur ihr bereits vorhandenes Wissen festigen, sondern sich auch neues Wissen aneignen. Eine Kombination aus theoretischem Wissen über ein bestimmtes Thema und anschließendem praktischem Üben würde den Studierenden helfen, Lehrmaterialien aus dem Studium besser zu verstehen und zu verinnerlichen. Diese könnten kontinuierlich aktualisiert werden, sodass ALADIN den wandelnden Anforderungen gerecht wird.
 
 
 
