@@ -235,7 +235,7 @@ Da in der Datei DecisionTreeTask.py Funktionen aus DecisionTreeTaskFunction.py a
 
 Zu Beginn wird der generierte Datensatz aus der CSV-Datei geladen, um daraus das Zielmerkmal, dessen Klassen und die weiteren Merkmale zur Berechnung mit dem ID3-Algorithmus zu filtern. Sobald die Wrapperklasse aus der WrapperValidateDecisionTree.py Listen mit den enthaltenen Knoten und Kanten aus dem eingegebenen Entscheidungsbaum übergibt, werden diese Listen für die Überprüfung vorbereitet, sodass sie die benötigte Struktur aufweisen. Das bedeutet, dass jeder Knoten in der Liste der Knoten einem Tupel entspricht, was auch für alle Kanten in der Liste der Kanten gilt. Sobald dies umgesetzt wurde, wird die Funktion start_decisiontree_task() aufgerufen und die vorbereiteten Listen übergeben.
 
-In der Funktion start_decisiontree_task() wird zunächst der Lösungsentscheidungsbaum mithilfe der Funktion build_decision_tree() berechnet. Der Rückgabewert dieser Funktion entspricht einer Baumstruktur, die alle berechneten Werte enthält.
+In der Funktion start_decisiontree_task() wird zunächst der Lösungsentscheidungsbaum mithilfe der Funktion build_decision_tree() berechnet. Diese Funktion führt die Berechnung des Entscheidungsbaums mit dem ID3-Algorithmus durch. Der Rückgabewert dieser Funktion entspricht einer Baumstruktur, die alle berechneten Werte enthält.
 
 [source, python]
 ----
