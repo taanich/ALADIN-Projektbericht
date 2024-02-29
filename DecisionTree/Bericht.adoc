@@ -21,7 +21,7 @@ Für den Aufgabentypen ergeben sich folgende Anforderungen:
 Die Generierung eines Datensatzes erfolgt zufällig, wobei sich nur die Berechnungswerte ändern dürfen. Die Struktur des Baumes soll erhalten bleiben.
 
 . *Datensatzgenerierung basierend auf vorhandenem Baum* +
-Die Generierung des Datensatzes erfolgt anhand eines bereits vorgegebenen Entscheidungsbaumes.
+Die Generierung des Datensatzes erfolgt anhand eines bereits vorgegebenen Entscheidungsbaums.
 
 . *Interaktiver Aufbau des Entscheidungsbaums* +
 Der Entscheidungsbaum sollte interaktiv aufgebaut werden können, wodurch beliebig viele Knoten und Kanten in unterschiedlichen Tiefen hinzugefügt oder entfernt werden können.
@@ -50,7 +50,7 @@ Um die Umsetzung der Aufgaben und Ziele zu gewährleisten, wurden feste Zeiten f
 
 ==== Eigenständige Berechnung einer ID3-Algorithmus-Aufgabe
 
-Zu Beginn des Projekts stand die Auseinandersetzung mit dem Aufgabentypen zur Berechnung eines Entscheidungsbaums im Vordergrund. Ein entscheidender Schritt dabei war, die Aufgabe zunächst eigenständig zu lösen. Ziel war es, das persönliche Verständnis für den Aufbau und die wesentlichen Aspekte dieser Art von Aufgabe zu vertiefen. Dies beinhaltete die Analyse, welche Faktoren bei der Konstruktion einer solchen Aufgabe von Bedeutung sind, welche Schritte in der Berechnung notwendig sind, welche Lösungswege existieren und wie das Endresultat, der Aufbau des Entscheidungsbaums, gestaltet sein sollte.
+Zu Beginn des Projekts stand die Auseinandersetzung mit dem Aufgabentypen zur Berechnung eines Entscheidungsbaums im Vordergrund. Ein entscheidender Schritt dabei war, die Aufgabe zunächst eigenständig zu lösen. Ziel war es, das persönliche Verständnis für den Aufbau und die wesentlichen Aspekte dieser Art von Aufgabe zu vertiefen. Dies beinhaltete die Analyse, welche Elemente bei der Konstruktion einer solchen Aufgabe von Bedeutung sind, welche Schritte in der Berechnung notwendig sind, welche Lösungswege existieren und wie das Endresultat, der Aufbau des Entscheidungsbaums, gestaltet sein sollte.
 
 Im wöchentlichen Meeting wurde in Absprache festgehalten, dass der zu entwickelnde Aufgabentyp auf dem ID3-Algorithmus basieren sollte. Dies erforderte zunächst, das Verständnis für die Funktionsweise und Anwendung des ID3-Algorithmus zu erlangen. Weiter wurden Beispielaufgaben durchgerechnet, wobei verschiedene Problemstellungen berücksichtigt wurden, wie zum Beispiel die Berechnung von Aufgaben unter dem Gesichtspunkt von Mehrfachlösungen.
 
@@ -110,7 +110,7 @@ Bei der Entwicklung des eigenen Algorithmus wurde darauf geachtet, dass die bere
 
 Nach Abschluss der Algorithmusentwicklung wurde mit der Implementierung des Aufgabentyps als Prototyp begonnen. Die Backend-Entwicklung erfolgte weiterhin mit Python, wobei der zuvor implementierte Algorithmus verwendet wurde. Außerdem wurde Flask, ein Web-Framework für Python verwendet, um die Serveranwendung zu entwickeln. In der Frontend-Entwicklung kamen HTML, CSS und JavaScript für die grundlegende Entwicklung der Benutzeroberfläche zum Einsatz. Zudem wurde die JavaScript-Bibliothek D3.js verwendet, um den Entscheidungsbaum visuell umzusetzen. Basierend auf dem entwickelten Wireframe wurde die Aufgabe so implementiert, dass der Datensatz, aus dem der Entscheidungsbaum berechnet werden sollte, auf der linken Seite angezeigt wird, während rechts der interaktive Entscheidungsbaum dargestellt wird. Oberhalb wird die Aufgabenstellung für den Studierenden angezeigt.
 
-Der interaktive Entscheidungsbaum kann folgendermaßen bedient werden: Durch einen Klick auf einen Knoten wird ein Prompt angezeigt, in dem der Studierende die Bezeichnung des Merkmals eingeben kann. Das gleiche Vorgehen gilt für einen Klick auf eine Kante, wobei hier die Bezeichnung sowie die zugehörige Entropie eingegeben werden können. Um weitere Knoten hinzuzufügen, kann der Studierende auf das "+"-Zeichen unterhalb des Knotens klicken und im Prompt die Anzahl der hinzuzufügenden Knoten auf der nächsten Ebene angeben. Ebenso kann er die Anzahl der Knoten reduzieren oder die Knoten auf der Ebene wieder löschen, indem er erneut auf das "+"-Zeichen unterhalb des Knotens klickt und die neue Anzahl eingibt oder die Anzahl auf 0 setzt, um die hinzugefügten Knoten zu entfernen. Dabei ist es möglich, auf jeder Ebene des Baumes die Anzahl der Knoten zu verändern. Allerdings werden die zuvor eingetragenen Werte für Knoten und Kanten mit den Standardwerten überschrieben, wenn die Anzahl auf der Ebene verändert wurde. Daher ist es erforderlich, nachträglich diese Werte erneut einzugeben.
+Der interaktive Entscheidungsbaum kann folgendermaßen bedient werden: Durch einen Klick auf einen Knoten wird ein Prompt angezeigt, in dem der Studierende die Bezeichnung des Merkmals eingeben kann. Das gleiche Vorgehen gilt für einen Klick auf eine Kante, wobei hier die Bezeichnung sowie die zugehörige Entropie eingegeben werden können. Um weitere Knoten hinzuzufügen, kann der Studierende auf das "\+"-Zeichen unterhalb des Knotens klicken und im Prompt die Anzahl der hinzuzufügenden Knoten auf der nächsten Ebene angeben. Ebenso kann er die Anzahl der Knoten reduzieren oder die Knoten auf der Ebene wieder löschen, indem er erneut auf das "+"-Zeichen unterhalb des Knotens klickt und die neue Anzahl eingibt oder die Anzahl auf 0 setzt, um die hinzugefügten Knoten zu entfernen. Dabei ist es möglich, auf jeder Ebene des Baumes die Anzahl der Knoten zu verändern. Allerdings werden die zuvor eingetragenen Werte für Knoten und Kanten mit den Standardwerten überschrieben, wenn die Anzahl auf der Ebene verändert wurde. Daher ist es erforderlich, nachträglich diese Werte erneut einzugeben.
 
 Zur Überprüfung der Eingaben des Studierenden wird auf den Button "Speichern" geklickt. Dabei werden alle Knoten und Kanten rot eingefärbt, welche falsch sind. Hier werden folgende Prüfungen durchgeführt:
 
@@ -120,7 +120,7 @@ Zur Überprüfung der Eingaben des Studierenden wird auf den Button "Speichern" 
 
 Wenn alle Prüfungen erfolgreich verlaufen sind, wird die Eingabe des Studierenden als korrekt betrachtet, anderenfalls wird sie als falsch bzw. rot angezeigt.
 
-Zur weiteren Kontrolle wurde während des Prototyps eine Ausgabe implementiert, die den möglichen Fehler bei der Eingabe angibt. Um das Debugging zu erleichtern, wurde zwischen Knoten und Kanten unterschieden, um anzuzeigen, wo der Fehler aufgetreten ist. Es wurden die folgenden Prüfungen implementiert:
+Zur weiteren Kontrolle wurde im Prototyp eine Ausgabe implementiert, die den möglichen Fehler bei der Eingabe angibt. Um das Debugging zu erleichtern, wurde zwischen Knoten und Kanten unterschieden, um anzuzeigen, wo der Fehler aufgetreten ist. Es wurden die folgenden Prüfungen implementiert:
 
 - *1. Prüfung*: "Label/Entropie nicht richtig"
 - *2. Prüfung*: "Parent nicht richtig" - Hierbei handelt es sich um den übergeordneten Knoten bei einer Kante bzw. die übergeordnete Kante bei einem Knoten
@@ -158,11 +158,16 @@ Für die Generierung neuer Datensätze wurde daher die Bootstrap-Sampling-Method
 
 === Technische Umsetzung in ALADIN
 
-Nachdem der Prototyp alle erforderlichen Funktionalitäten hatte, bestand der nächste Schritt darin, diese Funktionalitäten in ALADIN zu integrieren und den Aufgabentypen final zu entwickeln. Bei der Umsetzung des Aufgabentypen in ALADIN wurde sich an den bereits implementierten Gozintograph Aufgabentyp zurückgegriffen. Dies ermöglichte einerseits eine erleichterte Einarbeitung und andererseits die Nutzung und Weiterentwicklung bereits vorhandener Komponenten.
+Nachdem der Prototyp alle erforderlichen Funktionalitäten hatte, bestand der nächste Schritt darin, diese Funktionalitäten in ALADIN zu integrieren und den Aufgabentypen final zu entwickeln. Bei der Umsetzung des Aufgabentypen in ALADIN und in CARPET wurde sich an den bereits implementierten Gozintograph Aufgabentyp orientiert. Dabei wurde die Komponete für die generierung eines Graphen übernommen bzw. weiterentwickelt. Dies ermöglichte eine erleichterte Einarbeitung und Umsetzung des Aufgabentypen.
+
+_Graphology_ +
+Als Erweiterung wurde die Bibliothek "Graphology" verwendet. Die Bibliothek bietet eine Sammlung an Funktionen, um die Erstellung und Verwaltung von Graphen zu erleichtern. Dadurch war es möglich, für den interaktiven Entscheidungsbaum eine flexible Struktur zu schaffen. Die Anwendungen der Funktionen und Event-Handler ermöglichten die einfache Durchführung von Manipulationen am Graphen, wie beispielsweise das Hinzufügen oder Entfernen von Knoten und Kanten. Graphology wurde im Backend (ALADIN) installiert und im Frontend (CARPET) eingebunden.
+
+NOTE: Für die Installation von Graphology in ALADIN wurde `npm install graphology-types` verwendet. Die genutzten Funktionen wurden aus der Dokumentation entnommen: https://graphology.github.io/
 
 ==== Implementierung in ALADIN
 
-Im Backend wurde der ID3-Algorithmus implementiert, um den Lösungsbaum zu berechnen, sowie die Überprüfung des vom Studierenden erstellten Entscheidungsbaums. Die Auswertung des eingegebenen Entscheidungsbaums erfolgt als JSON-Rückgabe an das Frontend, um weitere Bearbeitungen zu ermöglichen. Dabei wurden in ALADIN folgende Daten hinzugefügt oder gendert:
+Im Backend wurde der ID3-Algorithmus implementiert, um den Lösungsbaum zu berechnen, sowie die Überprüfung des vom Studierenden erstellten Entscheidungsbaums. Die Auswertung des eingegebenen Entscheidungsbaums erfolgt als JSON-Rückgabe an das Frontend, um weitere Bearbeitungen zu ermöglichen. Dabei wurden in ALADIN folgende Daten hinzugefügt oder geändert:
 
 Im Verzeichnis: src\server\tempTaskGraphStorage\tasks\ +
 
@@ -170,16 +175,18 @@ Im Verzeichnis: src\server\tempTaskGraphStorage\tasks\ +
 
 Im Verzeichnis: src\Tasks\DecisionTrees\
 
-- *dtBuildDecisionTree.py*: Python-Skript, welches von der Wrapperklasse in WrapperValidateDecisionTree.ts ausgerufen wird und zuständig für die Berechnung des Lösungsbaums sowie die Überprüfung des eingegebenen Entscheidungsbaums ist
-- *dtSolutionTree.py* : Beinhaltet Funktionen sowohl für den Aufbau des Lösungsbaums als auch für die Überprüfung des eingegebenen Baums
-- *dtDataSampling.py*: Python-Skript, welches von der Wrapperklasse in WrapperDataSampler.ts aufgerufen wird und verantwortlich für die Erzeugung neuer Datensätze ist
+- *DecisionTreeTask.py*: Python-Skript, welches von der Wrapperklasse in WrapperValidateDecisionTree.ts ausgerufen wird und zuständig für die Berechnung des Lösungsbaums sowie die Überprüfung des eingegebenen Entscheidungsbaums ist
+- *DecisionTreeTaskFunction.py* : Beinhaltet Funktionen sowohl für den Aufbau des Lösungsbaums als auch für die Überprüfung des eingegebenen Baums
+- *DataSampler.py*: Python-Skript, welches von der Wrapperklasse in WrapperDataSampler.ts aufgerufen wird und verantwortlich für die Erzeugung neuer Datensätze ist
 - *WrapperDataSampler.ts*: Wrapperklasse für das Python-Skript zur Datengenerierung
 - *WrapperValidateDecisionTree.ts*: Wrapperklasse für das Python-Skript zur Validierung des Entscheidungsbaums
+
+Die Dateien *Task.ts* und *WrapperDecisionTree.ts* beinhalten die Funktionaliäten zur Erstellung eines Graphen aus dem Gozintograph Aufgabentyp. Die Funktionalitäten wurden vollständig übernommen.
 
 Im Verzeichnis: src\Tasks\DecisionTrees\datasets
 
 - *spiel.csv*: Ursprünglicher Datensatz, der als Basis für die Generierung eines neuen Datensatzes dient
-- *genertaed_dataset.csv*: Neu generierter Datensatz im CSV-Format, der für die Berechnung des Lösungsbaums verwendet wird
+- *generated_dataset.csv*: Neu generierter Datensatz im CSV-Format, der für die Berechnung des Lösungsbaums verwendet wird
 - *generated_dataset.json*: Neu generierter Datensatz im JSON-Format, der für die Anzeige auf der Benutzeroberfläche im Tabellenformat dient
 
 *Erläuterung: DecisionTree.json* +
@@ -216,19 +223,19 @@ Es wurden die Schnittstellen 'generatedSampledData', 'generateGraph' und 'decisi
 ----
 
 [.underline]#_Hinzugefügte Komponenten für den Aufgabentyp_# +
-Für den Aufgabentyp wurden die Komponenten 'hints', 'TaskConfiguration', 'Output' und DecisionTree integriert:
+Für den Aufgabentyp wurden die Komponenten 'hints', 'TaskConfiguration', 'Output' und 'DecisionTree' integriert:
 
 - *'hints'*: Die Verwendung von 'hints' ermöglicht die Implementierung von Hilfestellungen für den Studierenden, um während der Aufgabenbearbeitung Hilfestellungen anzuzeigen
 - *'TaskConfiguration'*: Mithilfe von 'TaskConfiguration' wurde sowohl der "Generieren!"-Button implementiert, um neue Aufgaben zu generieren, als auch eine Aufgabenbeschreibung mit der Bedienungsanleitung des Entscheidungsbaums hinzugefügt
 - *'Output'*: Dient dazu, die generierten Daten in Tabellenform auf der Benutzeroberfläche anzuzeigen
 - *'DecisionTree'*: Die Komponente zeigt dem Studierenden den interaktiven Graphen an
 
-*Erläuterung: dtBuildDecisionTree.py und dtSolutionTree.py* +
-Da in der Datei dtBuildDecisionTree.py Funktionen aus dtSolutionTree.py aufgerufen werden, wird hier ein Überblick darüber gegeben, wie diese Funktionen aufgerufen werden und welche Aktionen dabei durchgeführt werden. In dieser Datei werden spezifische Funktionen aufgerufen, die dazu dienen, den Lösungsentscheidungsbaum aufzubauen und ihn für die Überprüfung der Werte vorzubereiten. Die Validierungsfunktion für den eingegebenen Entscheidungsbaum des Studierenden wird hier aufgerufen und das Ergebnis der Überprüfung wird als JSON-Format umgewandelt und als Rückgabewert an die Wrapperklasse in der Datei WarapperValidateDecisionTree.py zurückgegeben.
+*Erläuterung: DecisionTreeTask.py und DecisionTreeTaskFunction.py* +
+Da in der Datei DecisionTreeTask.py Funktionen aus DecisionTreeTaskFunction.py aufgerufen werden, wird hier ein Überblick darüber gegeben, wie diese Funktionen aufgerufen werden und welche Aktionen dabei durchgeführt werden. In dieser Datei werden spezifische Funktionen aufgerufen, die dazu dienen, den Lösungsentscheidungsbaum aufzubauen und ihn für die Überprüfung der Werte vorzubereiten. Die Validierungsfunktion für den eingegebenen Entscheidungsbaum des Studierenden wird hier aufgerufen und das Ergebnis der Überprüfung wird als JSON-Format umgewandelt und als Rückgabewert an die Wrapperklasse in der Datei WrapperValidateDecisionTree.py zurückgegeben.
 
-Zu Beginn wird der generierte Datensatz aus der CSV-Datei geladen, um daraus das Zielmerkmal, dessen Klassen und die weiteren Merkmale zur Berechnung mit dem ID3-Algorithmus zu filtern. Sobald die Wrapperklasse aus der WrapperValidateDecisionTree.py Listen mit den enthaltenen Knoten und Kanten aus dem eingegebenen Entscheidungsbaum übergibt, werden diese Listen für die Überprüfung vorbereitet, sodass sie die benötigte Struktur aufweisen. Das bedeutet, dass jeder Knoten in der Liste der Knoten einem Tupel entspricht, was auch für alle Kanten in der Liste der Kanten gilt. Sobald dies umgesetzt wurde, wird die Funktion start_build_decisiontree() aufgerufen und die vorbereiteten Listen übergeben.
+Zu Beginn wird der generierte Datensatz aus der CSV-Datei geladen, um daraus das Zielmerkmal, dessen Klassen und die weiteren Merkmale zur Berechnung mit dem ID3-Algorithmus zu filtern. Sobald die Wrapperklasse aus der WrapperValidateDecisionTree.py Listen mit den enthaltenen Knoten und Kanten aus dem eingegebenen Entscheidungsbaum übergibt, werden diese Listen für die Überprüfung vorbereitet, sodass sie die benötigte Struktur aufweisen. Das bedeutet, dass jeder Knoten in der Liste der Knoten einem Tupel entspricht, was auch für alle Kanten in der Liste der Kanten gilt. Sobald dies umgesetzt wurde, wird die Funktion start_decisiontree_task() aufgerufen und die vorbereiteten Listen übergeben.
 
-In der Funktion start_build_decisiontree() wird zunächst der Lösungsentscheidungsbaum mithilfe der Funktion build_decision_tree() berechnet. Der Rückgabewert dieser Funktion entspricht einer Baumstruktur, die alle berechneten Werte enthält.
+In der Funktion start_decisiontree_task() wird zunächst der Lösungsentscheidungsbaum mithilfe der Funktion build_decision_tree() berechnet. Der Rückgabewert dieser Funktion entspricht einer Baumstruktur, die alle berechneten Werte enthält.
 
 [source, python]
 ----
@@ -301,7 +308,7 @@ Aus diesem Rückgabewert werden die Baumstruktur (decisiontree_structure()) und 
 {'entropies': {'Aussicht = sonnig1': {'value': 0.87086, 'level': 1}, 'Aussicht = regnerisch1': {'value': 0.97987, 'level': 1}, 'Aussicht = bewölkt1': {'value': 0.0, 'level': 1}, 'Luftfeuchtigkeit = hoch1': {'value': 0.0, 'level': 3}, 'Luftfeuchtigkeit = normal1': {'value': 0.0, 'level': 3}, 'Wind = nein1': {'value': 0.0, 'level': 3}, 'Wind = ja1': {'value': 0.0, 'level': 3}}, 'infogain': {'Aussicht1': {'value': 0.32744, 'level': 0}, 'Luftfeuchtigkeit1': {'value': 0.87086, 'level': 2}, 'Wind1': {'value': 0.97987, 'level': 2}}}
 ----
 
-Sobald dies abgeschlossen ist, wird eine Liste erstellt (build_decision_tree_list()), die den vollständigen Baum mit den dazugehörigen Werten darstellen soll. Dabei werden einzelne Tupel erzeugt, die entweder einen Knoten oder eine Kante repräsentieren sollen. Die Bezeichnungen der Kanten und Knoten werden hinzugefügt, ebenso wie die Ebene, auf der sie der Knoten bzw. die Kante befindet. Anschließend werden die übergeordneten Knoten und Kanten hinzugefügt (add_parent_label() und add_child_node()).
+Sobald dies abgeschlossen ist, wird eine Liste erstellt (build_decision_tree_list()), die den vollständigen Baum mit den dazugehörigen Werten darstellen soll. Dabei werden einzelne Tupel erzeugt, die entweder einen Knoten oder eine Kante repräsentieren sollen. Die Bezeichnungen der Kanten und Knoten werden hinzugefügt, ebenso wie die Ebene, auf der sich der Knoten bzw. die Kante befindet. Anschließend werden die übergeordneten Knoten und Kanten hinzugefügt (add_parent_label() und add_child_node()).
 
 [source, python]
 ----
@@ -325,7 +332,7 @@ Sobald dies abgeschlossen ist, wird eine Liste erstellt (build_decision_tree_lis
 
 Danach wird die Liste in separate Listen für Knoten und Kanten aufgeteilt, um eine bessere und gezieltere Handhabung bei der Überprüfung zu ermöglichen. Zu jeder Liste werden entsprechend die Entropien und Informationsgewinne hinzugefügt (add_entropy() und add_infogain()).
 
-Zum Abschluss wird die Liste in die korrekte Struktur gebracht (prepare_lists()), um sie bei der Überprüfung verwenden zu können. Dies bedeutet, dass die Tupel in der Liste wie folgt strukturiert sind:
+Zum Abschluss wird die Liste in die benötigte Struktur gebracht (prepare_lists()), um sie bei der Überprüfung verwenden zu können. Dies bedeutet, dass die Tupel in der Liste wie folgt strukturiert sind:
 
 - *Tupel in der Lösungs-Knoten-Liste*: (KEY, LEVEL, LABEL, PARENTID, PARENTLABEL, INFOGAIN)
 - *Tupel in der Lösungs-Kanten-Liste*: (KEY, LEVEL, LABEL, PARENTID, PARENTLABEL, CHILDID, CHILDLABEL, ENTROPY)
@@ -384,7 +391,7 @@ Die Funktion validateGraph() vergleicht den vom Studierenden eingegebenen Entsch
  {'key': 'geid_243_9', 'result': False}]
 ----
 
-Abschließend wird überprüft, ob der vom Studierenden erstellte Entscheidungsbaum korrekt und vollständig ist. Im Fall, dass der Entscheidungsbaum vollständig richtig aufgebaut wurde, wird der Status von 'finished' auf 'true' gesetzt. Andernfalls bleibt der Status auf 'false'. Die Listen 'result_nodes' und 'result_edges', der Status von 'finished' sowie die berechneten Lösungswerte im Dictionary 'entropy_infogain_dict' werden in das JSON-Format umgewandelt und als Rückgabewert an die Wrapperklasse gesendet.
+Abschließend wird überprüft, ob der vom Studierenden erstellte Entscheidungsbaum korrekt und vollständig ist. Im Fall, dass der Entscheidungsbaum vollständig richtig aufgebaut wurde, wird der Status von 'finished' auf 'true' gesetzt. Andernfalls bleibt der Status auf 'false'. Die Listen 'result_nodes' und 'result_edges', der Status von 'finished' sowie die berechneten Lösungswerte im Dictionary 'entropy_infogain_dict' werden als JSON-Format umgewandelt und als Rückgabewert an die Wrapperklasse gesendet.
 
 [source, python]
 ----
@@ -393,7 +400,7 @@ import ast
 import json
 import pandas as pd
 import numpy as np
-from dtSolutionTree import *
+from DecisionTreeTaskFunction import *
 
 data_path_csv = 'src/Tasks/DecisionTrees/datasets/generated_dataset.csv'
 dataframe = pd.read_csv(data_path_csv)
@@ -402,7 +409,7 @@ target_attribute = dataframe.columns[-1]
 classes = dataframe[target_attribute].unique()
 attributes = dataframe.columns[:-1]
 
-def start_build_decisiontree(received_nodes, received_edges, classes):
+def start_decisiontree_task(received_nodes, received_edges, classes):
 
     dt = build_decision_tree(dataframe, attributes, target_attribute, 0, received_nodes)
     decision_tree_structure_dict = decisiontree_structure(dt)
@@ -451,13 +458,13 @@ current_nodes_list = [(x[0], x[1], 0 if x[2] is None else x[2], x[3], x[4]) for 
 modified_nodes_list = ast.literal_eval(received_edges_list)
 current_edges_list = [tuple(inner) for inner in modified_nodes_list]
 
-print(start_build_decisiontree(current_nodes_list, current_edges_list, classes))
+print(start_decisiontree_task(current_nodes_list, current_edges_list, classes))
 ----
 
 // !!! Evtl. noch Algrithmus mit Mehrfachlösung erklären !!!
 
-*Erläuterung: dtDataSampling.py* +
-In der dtDataSampling.py wird die Datengenerierung implementiert. Zunächst wird der originale Datensatz geladen, um neue Stichproben zu generieren. Der Pfad, unter dem der neu generierte Datensatz gespeichert werden soll, wird mit 'src/Tasks/DecisionTrees/datasets/generated_dataset.csv' angegeben.
+*Erläuterung: DataSampler.py* +
+In der DataSampler.py wird die Datengenerierung implementiert. Zunächst wird der originale Datensatz geladen, um neue Stichproben zu generieren. Der Pfad, unter dem der neu generierte Datensatz gespeichert werden soll, wird mit 'src/Tasks/DecisionTrees/datasets/generated_dataset.csv' angegeben.
 
 [.underline]#_bootstrap_sample() und generate_data_point() - Funktion_# +
 Diese Funktionen dienen dazu, Bootstrap-Samples des Datensatzes mit bootstrap_sample() zu erstellen und Datenpunkte basierend auf dem Entscheidungsbaum mit generate_data_point() zu generieren.
@@ -474,7 +481,7 @@ Nach der Generierung des Datensatzes wird dieser sowohl im JSON-Format gespeiche
 ----
 import pandas as pd
 import numpy as np
-from dtSolutionTree import *
+from DecisionTreeTaskFunction import *
 
 data_path_csv = 'src/Tasks/DecisionTrees/datasets/spiel.csv' # Originaler Datensatz
 generated_data_path_csv = 'src/Tasks/DecisionTrees/datasets/generated_dataset.csv' # Generierter Datensatz
@@ -534,7 +541,7 @@ sample_data()
 ----
 
 *Erläuterung: WrapperDataSampler.ts* +
-Die Datei WrapperDataSampler.ts enthält die Wrapperklasse, die in TypeScript geschrieben ist und dazu dient, die Ausführung des Python-Skripts dtDataSampling.py zu erleichtern.
+Die Datei WrapperDataSampler.ts enthält die Wrapperklasse, die in TypeScript geschrieben ist und dazu dient, die Ausführung des Python-Skripts DataSampler.py zu ermöglichen.
 
 [.underline]#_runPythonScript() - Funktion_# +
 Diese Funktion ermöglicht die Ausführung eines Python-Skripts mit übergebenen Argumenten. Hierbei wird die 'exec()'-Funktion aus dem 'child_process' Modul verwendet. Der Shell-Befehl für die Skriptausführung wird erstellt und bei erfolgreicher Ausführung wird die Standardausgabe zurückgegeben. Im Fehlerfall werden entsprechende Fehlermeldungen oder Standardfehlerausgaben behandelt und zurückgegeben.
@@ -543,7 +550,7 @@ Diese Funktion ermöglicht die Ausführung eines Python-Skripts mit übergebenen
 Diese Funktion liest eine JSON-Datei und gibt die geparsten Daten als Array von Objekten zurück. Sie filtert leere Zeilen und behandelt Lesefehler sowie Parsing-Ausnahmen. Die geparsten JSON-Daten werden als Promise zurückgegeben.
 
 [.underline]#_DataSamplingGenerator() - Funktion_# +
-Dies ist die Hauptfunktion, welche das Python-Skript dtDataSampling.py ausführt, die JSON-Datei einliest und eine Tabelle aus den Daten erstellt. Dabei werden mögliche Fehler bei der Ausführung des Skripts oder beim Lesen der JSON-Datei behandelt.
+Dies ist die Hauptfunktion, welche das Python-Skript DataSampler.py ausführt, die JSON-Datei einliest und eine Tabelle aus den Daten erstellt. Dabei werden mögliche Fehler bei der Ausführung des Skripts oder beim Lesen der JSON-Datei behandelt.
 
 *Erläuterung: WrapperValidateDecisionTree.ts* +
 Die Datei WrapperValidateDecisionTree.ts enthält die Wrapperklasse, die in TypeScript geschrieben ist, um die Ausführung des Python-Skripts dtBuildDecisonTree.py zu erleichtern.
@@ -560,7 +567,7 @@ Diese Funktion konvertiert eine Liste von Knoten und Kanten aus dem Graphen in e
 [.underline]#_DecisionTreeValidator() - Funktion_# +
 Dies ist die Hauptfunktion. Aus dem übergebenen Entscheidungsbaum an diese Funktion werden die Knoten- und Kantenlisten erzeugt, die für die Überprüfung übergeben werden sollen. Die Daten werden für die Übergabe so vorbereitet, dass sie als JSON-Daten in Zeichenketten umgewandelt werden. Hierbei werden die Zeichenketten mit Hochkommas geparst, um eine korrekte Übertragung der Daten als Shell-Befehl zu ermöglichen.
 
-Das Python-Skript dtBuildDecisionTree.py wird mit den übergebenen Listen als Argumente ausgeführt und erhält die Werte der Auswertung des Entscheidungsbaums zurück. Diese werden anschließend als JSON-Format geparst und als Rückgabewert an das Frontend CARPET weitergegeben.
+Das Python-Skript DecisionTreeTask.py wird mit den übergebenen Listen als Argumente ausgeführt und erhält die Werte der Auswertung des Entscheidungsbaums zurück. Diese werden anschließend als JSON-Format geparst und als Rückgabewert an das Frontend CARPET weitergegeben.
 
 ==== Implementierung in CARPET
 
@@ -568,15 +575,12 @@ Bei der Frontend-Umsetzung in CARPET wurde sich an dem Gozintographen Aufgabenty
 
 In CARPET wurden folgende Dateien hinzugefügt bzw. geändert: +
 
-- Neue Komponente für die Erstellung eines interaktiven Entscheidungsbaums: *DecisionTree.vue* (im Verzeichnis: src\components\taskComponents\decisiontree\DecisionTree)
+- Neue Komponente für die Erstellung eines interaktiven Entscheidungsbaums: *DecisionTree.vue* (im Verzeichnis: src\components\taskComponents\DecisionTree\DecisionTree)
 - *Änderungen in Helperfunctions.ts*: Weitere Funktionen wurden hinzugefügt als Unterstützung für die Umsetzung des interaktiven Entscheidungsbaums
 - *Änderungen in taskGraph.ts*: Eine Schnittstelle wurde implementiert, um den bearbeiteten Graphen des Studierenden an das Backend (ALADIN) zu übertragen
 
 *Erläuterung: DecisionTree.vue* +
-Bei der Umsetzung der neuen Komponenten DecisionTree.vue wurde die sich an der bereits existierenden DOTGraph-Komponente orientiert, die bereits im Gozintographen-Aufgabentyp verwendet wurde. Die DOTGraph-Komponente stellte eine Grundlage dar, um eine ähnliche Visualisierung eines Graphen für einen interaktiven Entscheidungsbaum zu implementieren. Dadurch konnte bereits bestehender Code wiederverwendet und erweitert werden.
-
-_Graphology_ +
-Als Erweiterung der Komponente wurde die Bibliothek "Graphology" verwendet. Die Bibliothek bietet eine Sammlung an Funktionen, um die Erstellung und Verwaltung von Graphen zu erleichtern. Dadurch war es möglich, für den Entscheidungsbaum eine flexible Struktur zu schaffen. Die Anwendungen der Funktionen und Event-Handler ermöglichten die einfache Durchführung von Manipulationen am Graphen, wie beispielsweise das Hinzufügen oder Entfernen von Knoten und Kanten.
+Bei der Umsetzung der neuen Komponenten DecisionTree.vue wurde sich an der bereits existierenden DOTGraph-Komponente orientiert, die bereits im Gozintographen-Aufgabentyp verwendet wurde. Die DOTGraph-Komponente stellte eine Grundlage dar, um eine ähnliche Visualisierung eines Graphen für einen interaktiven Entscheidungsbaum zu implementieren. Dadurch konnte bereits bestehender Code wiederverwendet und erweitert werden.
 
 *_Neuen Graphen anlegen und IDs speichern_* +
 Zu Beginn wird ein neuer Graph erstellt und ein Array zur Speicherung von IDs für jeden Knoten und für jede Kante. Dadurch wird die Überprüfung auf Vorhandensein einer ID ermöglicht, wenn eine neue ID generiert wird.
@@ -736,7 +740,7 @@ graph.on('nodeAttributesUpdated', function({key, type, attributes, name}) {
 ----
 
 *_Überprüfung der Eingabewerte für den Informationsgewinn und die Entropie_* +
-Die Funktion isValidInputEntropy() und isValidInputInfo() wurden implementiert, um die Eingabewerte für die Entropie an den Kanten und den Informationsgewinn an den Knoten zu validieren. Ziel ist es sicherzustellen, dass die übergebenen Werte vom Typ Float sind, um mögliche Komplikationen bei späteren Überprüfungen zu vermeiden. Bei der Validierung des Informationsgewinns wird darüber hinaus geprüft, ob die Eingabe entweder vom Typ Float oder vom Typ String mit dem spezifischen Stringwert 'decision'. Nur der Stringwert 'decision' ist zulässig, um Knoten zu identifizieren, die Klassen repräsentieren.
+Die Funktion isValidInputEntropy() und isValidInputInfo() wurden implementiert, um die Eingabewerte für die Entropie an den Kanten und den Informationsgewinn an den Knoten zu validieren. Dies soll sicherstellen, dass die übergebenen Werte vom Typ Float sind, um mögliche Komplikationen bei späteren Überprüfungen zu vermeiden. Bei der Validierung des Informationsgewinns wird darüber hinaus geprüft, ob die Eingabe entweder vom Typ Float oder vom Typ String mit dem spezifischen Stringwert 'decision'. Nur der Stringwert 'decision' ist zulässig, um Knoten zu identifizieren, die Klassen repräsentieren.
 
 [source, typescript]
 ----
@@ -776,7 +780,7 @@ setTimeout(() => {
     ...
 ----
 
-[.underline]#_Rechtsklick auf eine Kante - Kantenbeschriftung und Entropie ändern_# +
+[.underline]#_Rechtsklick auf eine Kante: Kantenbeschriftung und Entropie ändern_# +
 Wenn eine Kante durch Rechtsklick ausgewählt wird, öffnet sich ein Prompt zur Eingabe der Kantenbeschriftung. Wenn die Eingabe für die Kantenbeschriftung leer ist, wird der Prompt geschlossen, ohne Änderungen an der Kante vorzunehmen. Falls jedoch eine Kantenbeschriftung eingegeben wurde, erscheint ein weiterer Prompt zur Eingabe der Entropie an der Kante. Die eingegebene Entropie wird auf seine Gültigkeit überprüft. Dies wird so lange wiederholt, bis ein gültiger Wert eingegeben wurde. Anschließend werden diese Werte als Attribute für die Kante gespeichert. Das Attribut 'label' fungiert als zusammengesetzter String, der die Kantenbeschriftung und die Entropie enthält und im Graphen angezeigt wird. Das Attribut 'name' enthält ausschließlich die Kantenbeschriftung, was für spätere Überprüfungen erforderlich ist.
 
 [source, typescript]
@@ -820,7 +824,7 @@ d3.selectAll('svg .edge').on('contextmenu', (e) => {
     ...
 ----
 
-[.underline]#_Rechtsklick auf einen Knoten - Knotenbeschriftung und Informationsgewinnwert ändern_# +
+[.underline]#_Rechtsklick auf einen Knoten: Knotenbeschriftung und Informationsgewinn ändern_# +
 Bei einem Rechtsklick auf einen Knoten öffnet sich ein Prompt, welcher zur Eingabe der Knotenbeschriftung auffordert. Wenn die Eingabe leer ist, wird die Funktion vorzeitig beendet und es erfolgt keine Änderungen am Knoten. Andernfalls erscheint ein weiterer Prompt, der nach einer Eingabe des Informationsgewinns für den Knoten auffordert. Der eingegebene Wert wird überprüft. Bei einer ungültigen Eingabe wird erneut der Prompt angezeigt, bis ein gültiger Wert eingegeben wird. Anschließend werden die eingegebenen Werte als Attributwerte des Knotens gespeichert. Das Attribut 'label' fungiert als zusammengesetzter String, der die Beschriftung des Knotens und den Informationsgewinn enthält und für die Anzeige im Graphen verwendet wird. Das Attribut 'name' wird für die Knotenbeschriftung verwendet und ist für die späteren Überprüfungen relevant.
 
 [source, typescript]
@@ -855,7 +859,7 @@ d3.selectAll('svg .node').on('contextmenu', (e) => {
 ...
 ----
 
-[.underline]#_Linksklick auf einen Knoten - Neuer Knoten hinzufügen und Knoten entfernen_# +
+[.underline]#_Linksklick auf einen Knoten: Neuer Knoten hinzufügen und Knoten entfernen_# +
 Bei einem Linksklick auf einen Knoten können zwei Funktionalitäten ausgelöst werden:
 
 . *Linksklick mit Eingabe einer Beschriftung für den Knoten*: Ein neuer Knoten wird unterhalb des angeklickten Knotens hinzugefügt
@@ -926,10 +930,10 @@ d3.selectAll('svg .node').on('click', (e) => {
 Um die Generierung von Schlüsselwerten und IDs für Knoten und Kanten zu unterstützen und auch die Normalisierung von Strings bei Eingabewerten zu ermöglichen, wurden entsprechende Hilfsfunktionen implementiert:
 
 [.underline]#_createRandomString()_# +
-Diese Funktion erzeugt eine zufällige Zeichenkette. Die Länge der Zeichenkette ist standardmäßig auf fünf festgelegt. In der while-Schleife wird ein zufälliges Zeichen aus dem vorherigen Zeichenpool 'characters' ausgewählt und zu der Zeichenkette hinzugefügt. Sobald die Zeichenkette eine Länge von fünf erreicht, wird die als Rückgabewert zurückgegeben.
+Diese Funktion erzeugt eine zufällige Zeichenkette. Die Länge der Zeichenkette ist standardmäßig auf fünf festgelegt. In der while-Schleife wird ein zufälliges Zeichen aus dem vorherigen Zeichenpool 'characters' ausgewählt und zu der Zeichenkette hinzugefügt. Sobald die Zeichenkette eine Länge von fünf erreicht, wird sie als Rückgabewert zurückgegeben.
 
 [.underline]#_normalizeString()_# +
-Diese Funktion normalisiert einen Zeichenkettenwert mithilfe von regulären Ausdrücken. Standardmäßig ersetzt sie mehrere aufeinanderfolgende Leerzeichen durch ein einzelnes Leerzeichen. Der Parameter 's' ist der Eingabestring, der normalisiert werden soll. Der Parameter 'regex' gibt an, welche Zeichen ersetzt werden sollen.
+Diese Funktion normalisiert eine Zeichenketten mithilfe von regulären Ausdrücken. Standardmäßig ersetzt sie mehrere aufeinanderfolgende Leerzeichen durch ein einzelnes Leerzeichen. Der Parameter 's' ist der Eingabestring, der normalisiert werden soll. Der Parameter 'regex' gibt an, welche Zeichen ersetzt werden sollen.
 
 [source, typescript]
 ----
@@ -950,7 +954,7 @@ const normalizeString = (s: string | null, regex: string = "\\s+") => {
 ----
 
 *Neue Schnittstelle bei taskGraph.ts* +
-Diese Funktion initiiert eine asynchrone POST-Anfrage an das Backend und empfängt die entsprechenden Antwortdaten. Der Payload der Anfrage setzt sich zusammen aus dem Graphen, welcher vom Studierenden auf der Benutzeroberfläche aufgebaut wurde, dem Typ 'decisiontree', sowie einer Anweisung 'decisionTreeValidator'. Letztere ruft die entsprechende Funktion im Backend auf und übergibt den Graphen zur Überprüfung der enthaltenen Werte. Die Funktion dient entsprechend als Schnittstelle für die Übertagung des eingegbenen Graphen an das Backend.
+Diese Funktion initiiert eine asynchrone POST-Anfrage an das Backend. Der Payload der Anfrage setzt sich zusammen aus dem Graphen, welcher vom Studierenden auf der Benutzeroberfläche aufgebaut wurde, dem Typ 'decisiontree', sowie einer Anweisung 'decisionTreeValidator'. Letztere ruft die entsprechende Funktion im Backend auf und übergibt den Graphen zur Überprüfung der enthaltenen Werte. Die Funktion dient entsprechend als Schnittstelle für die Übertagung des eingegbenen Graphen an das Backend.
 
 [source, typescript]
 ----
@@ -1023,7 +1027,7 @@ Durch Linksklick auf einen Knoten kann ein neuer Knoten direkt unterhalb des aus
 image::DT_11_Finale_Umsetzung.png[title="Anzeige eines Prompts für das hinzufügen eines neuen Knotens"]
 
 *Prüfung der Eingaben* +
-Nachdem der Studierende eine Eingabe getätigt hat, erfolgt automatisch eine Überprüfung. Bei korrekter Eingabe am Knoten oder an der Kante wird das entsprechende Objekt grün hervorgehoben. Andernfalls bleibt der Knoten bzw. die Kante orange, um auf einen Fehler hinzuweisen.
+Nachdem der Studierende eine Eingabe getätigt hat, erfolgt automatisch eine Überprüfung. Bei korrekter Eingabe am Knoten oder an der Kante wird das entsprechende Objekt grün hervorgehoben. Andernfalls bleibt der Knoten bzw. die Kante orange, um auf eine nicht korrekte Eingabe hinzuweisen.
 
 image::DT_12_Finale_Umsetzung.png[title="Prüfung des Entscheidungsbaums durch farbliche Hervorhebungen"]
 
@@ -1033,7 +1037,7 @@ Wenn der Studierende den Entscheidungsbaum korrekt und vollständig aufgebaut ha
 image::DT_13_Finale_Umsetzung.png[title="Meldung an den Studierenden bei erfolgreiche Lösung der Aufgabe"]
 
 *Hilfestellungen für den Studierende* +
-Wenn der Studierende Unterstützung bei der Lösung der Aufgabe benötigt, gibt es oben rechts eine Glühbirne. Durch einen Klick darauf erhält der Studierende Hinweise für die Bearbeitung der Aufgabe. Die Hinweise umfassen das Vorgehen des ID3-Algorithmus, Informationen zur Entropie sowie die Berechnungsformeln für den Informationsgewinn und die Entropie.
+Wenn der Studierende Unterstützung bei der Lösung der Aufgabe benötigt, steht oben rechts ein Hinweis-Button als Glühbirne zur Verfügung. Durch einen Klick darauf erhält der Studierende Hinweise für die Bearbeitung der Aufgabe. Die Hinweise umfassen das Vorgehen des ID3-Algorithmus, Informationen zur Entropie sowie die Berechnungsformeln für den Informationsgewinn und die Entropie.
 
 image::DT_14_Finale_Umsetzung.png[title="Anzeige einer Hilfestellung für das Vorgehen des ID3-Algorithmus"]
 
@@ -1041,7 +1045,7 @@ image::DT_14_Finale_Umsetzung.png[title="Anzeige einer Hilfestellung für das Vo
 
 Die Umsetzung des neuen Aufgabentyps in ALADIN stellte eine Herausforderung dar, insbesondere bei der anfänglichen Schwierigkeit beim Verständnis des Frameworks. Das Fehlen einer vorhandenen Dokumentation machte den Einstieg schwierig und erschwerte somit die Einarbeitung.
 
-Da das Verständnis nicht ausreichend vorhanden war, insbesondere bei der Handhabung der Datenübertragung zwischen Frontend (CARPET) und Backend (ALADIN), wurde um das Hindernis zu umgehen, eigenständig eine Schnittstelle entwickelt, um die notwendigen Daten, in diesem Fall die Übertragung des aufgebauten Entscheidungsbaums vom Studierenden, übertragen zu können.
+Da das Verständnis nicht ausreichend vorhanden war, insbesondere bei der Handhabung der Datenübertragung zwischen Frontend (CARPET) und Backend (ALADIN), wurde um das Hindernis zu umgehen, eigenständig eine Schnittstelle entwickelt, um die notwendigen Daten, in diesem Fall die Übermittlung des aufgebauten Entscheidungsbaums vom Studierenden, übertragen zu können.
 
 Aufgrund der zeitintensiven Einarbeitung konnten einige geplante Erweiterungen des Aufgabentyps nicht umgesetzt werden. Zu den nicht realisierten Erweiterungen gehören unter anderem die Klassifizierung neuer Datensätze sowie die Anwendung des Pruning-Verfahrens nach dem Aufbau des Entscheidungsbaums als erweiterte Aufgabe.
 
@@ -1049,10 +1053,10 @@ Aufgrund der zeitintensiven Einarbeitung konnten einige geplante Erweiterungen d
 
 Durch die bisherige Entwicklung des Aufgabentypen wurde eine interaktive Plattform geschaffen, die es Studierenden ermöglicht, den berechneten Entscheidungsbaum mit dem ID3-Algorithmus zu üben.
 
-Um den Lernumfang und die Anwendungsvielfalt zu erweitern, bietet das Projekt zahlreiche Möglichkeiten zur Erweiterung:
+Um den Lernumfang und die Anwendungsvielfalt zu erweitern, bietet das Projekt weitere Möglichkeiten zur Erweiterung:
 
 . *Anzeigen des Lösungsbaums bzw. weitere mögliche Lösungsoptionen* +
-Eine Erweiterung des Aufgabentyps könnte darin bestehen, dass nach Lösen einer Aufgabe der Lösungsbaum mit angezeigt wird. Insbesondere bei Aufgaben, bei denen Mehrfachlösungen vorhanden sind, könnte dies für die Studierenden interessant sein. Dadurch wird nicht nur die individuelle Lösung betrachtet, sondern auch alternative Lösungsoptionen. Dies könnte ein umfassenderes Verständnis für die Berechnung verschiedener Entscheidungsbaumstrukturen ermöglichen, die durch den ID3-Algorithmus erzeugt werden.
+Eine Erweiterung des Aufgabentyps könnte darin bestehen, dass nach Lösen einer Aufgabe der Lösungsbaum mit angezeigt wird. Insbesondere bei Aufgaben, bei denen Mehrfachlösungen vorhanden sind, könnte dies für die Studierenden interessant sein. Dadurch wird nicht nur die individuelle Lösung betrachtet, sondern auch alternative Lösungsoptionen. Dies könnte ein umfassenderes Verständnis für die Berechnung verschiedener Entscheidungsbaumstrukturen ermöglichen.
 
 . *Hinweise zu den Fehlern im Baum dem Studierenden angeben* +
 Eine weitere mögliche Erweiterung könnte die Implementierung von Hinweisen zu Fehlern bei den Eingaben und dem Aufbau des Entscheidungsbaums sein. Dadurch werden Studierende nicht nur darauf hingewiesen, an welcher Stelle ein Fehler aufgetreten ist, sondern erhalten auch eine Erklärung, warum der Fehler aufgetreten ist. Dies kann den Lerneffekt der Studierenden weiter fördern. Erste Ansätze zur Umsetzung von Hinweisen zu den Fehlern wurden bereits beim Prototypen entwickelt.
