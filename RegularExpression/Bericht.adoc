@@ -1,20 +1,261 @@
 :doctype: book
-include::../file-attributes.inc.adoc[]
 :imagesdir: images
+include::../file-attributes.inc.adoc[]
+
 
 == Aufgabentyp - {regex}
+
 
 === Aufgabenstellung
 
 === Aufgabenbeschreibung
 
+Im Rahmen des Projektseminars war es meine Aufgabe, eine Möglichkeit zum Üben und Lernen von regulären Ausdrücken (RegEx) zu entwerfen und umzusetzen. Die genaue Beschaffenheit der Aufgabe war nicht festgelegt und lag in meinem Ermessen. Ich entschied mich für die Entwicklung eines RegEx-Kreuzworträtsels, bei dem die Nutzer zu gegebenen Zeilen- und Spalten-RegExen passende Zeichenketten finden müssen. Dieses erfolgt in Form eines Rasters, in welchem der Nutzer in jedes Feld den passenden Buchstaben eingeben muss. Zu jedem eingegbenen Buchstaben bekommt der Nutzer dann ein Feedback über die Richtigkeit der Eingabe.
+
 === Anforderung
+
+. *Zufällige Generierung von regulären Ausdrücken*:
+Die Anwendung sollte in der Lage sein, zufällige reguläre Ausdrücke zu generieren, die als Grundlage für das RegEx-Kreuzworträtsel dienen.
+
+. *Validieren der Nutzereingaben in Echtzeit*:
+Während die Nutzer die Buchstaben in das Kreuzworträtsel eingeben, sollte die Anwendung in Echtzeit die Eingaben validieren, um sicherzustellen, dass sie den RegEx-Mustern entsprechen.
+
+. *Abwechslungsreiche RegEx-Typen mit unterschiedlicher Komplexität*:
+Die generierten regulären Ausdrücke sollten eine Vielfalt an RegEx-Typen und unterschiedliche Schwierigkeitsgrade aufweisen, um eine Herausforderung für die Nutzer zu bieten.
+
+. *Übersichtliche und lesbare Darstellung der RegEx*:
+Die RegEx-Muster sollten auf eine übersichtliche und leicht lesbare Weise dargestellt werden, damit die Nutzer sie verstehen und interpretieren können.
+
+. *Lösbarkeit der Aufgabe sicherstellen*:
+Die generierten RegEx-Kreuzworträtsel sollten lösbar sein, wobei die RegEx-Muster angemessen herausfordernd, aber nicht unmöglich sein sollten.
+
 
 === Planung
 
+Während des Projekts trafen wir uns wöchentlich, um den Fortschritt zu besprechen, mögliche Probleme zu identifizieren und die nächsten Schritte zu planen. Diese Treffen waren entscheidend für die Koordination und den reibungslosen Ablauf des Projekts. Im wesentlichen existierten drei Phasen im Projektverlauf:
+
+. *Entscheidung und Konkretisierung eines Regex-Aufgabentyps* + 
+Zuerst habe ich mir Gedanken über den Aufgabentyp gemacht, den ich wählen möchte, um reguläre Ausdrücke zu erstellen. Dabei war es mir wichtig, einen Aufgabentyp zu wählen, der nicht nur dabei hilft, reguläre Ausdrücke zu üben, sondern auch Spaß macht. Da reguläre Ausdrücke oft als trocken und schwer zugänglich wahrgenommen werden, suchte ich nach einer Möglichkeit, sie spielerisch und ansprechend zu präsentieren. Dabei diente mir das hexagonförmige Regex-Puzzle, das 2013 von Dan Gulotta für das MIT Mystery Hunt entwickelt wurde, als Inspiration. Da sich jedoch ein hexagonförmiges Puzzle, das zufällig generiert werden kann, als zu komplex erwies, entschied ich mich für einen zweidimensionalen Ansatz in klassischer Rasterform.
+
+. *Realisierung der Aufgabe in einem externen Programm* +
+Zunächst entwickelte ich einen Prototypen, der als eigenständiges Programm unabhängig von Aladin funktionierte. Zu dieser Phase gehörte das Festlegen auf eine Programmiersprache und das Konzpieren einer effizienten Programmstruktur. Nachdem diese Überlegungen angestellt wurden, begann ich die Funktionen zu implementieren. Dazu passte ich den Algorithmus zur Generierung von RegEx an, erstellte die Puzzle-Oberfläche und implementierte schließlich die Validierung der Nutzereingaben. 
+
+. *Integrieren in Aladin und Carpet* +
+Nachdem diese Funktionen fertiggestellt waren, begann ich mit der Integration des Projekts in ALADIN. Dies benötigte die Intensive Einarbeitung in das Framework, sowie das  Verständnis für dessen Aufbau und Funktionsweise. Es mussten einige grundlegende Änderungen und Anpassen vorgenommen werden, um sicherzustellen, dass die Integration die Funktionsweise von ALADIN nicht behindert.
+
+Nachdem diese drei Schritte durchlaufen wurden, waren nur noch einige Veränderungen und kleinere Fehlerbehebung vorzunehmen, bevor das Projekt final präsentiert wurde.
+
+
 === Technische Umsetzung
 
+==== Alleinstehendes Programm
+
+===== Python
+Python war die naheliegende Wahl für die Umsetzung, da ich ein Raster erstellen und RegEx in den Zeilen- und Spaltenköpfen abbilden musste und ich am meisten Erfahrung in dieser Programmiersprache besitze. Dank der Vielzahl an vorhandenen Bibliotheken war Python besonders gut geeignet. Tkinter, eine Bibliothek für die Entwicklung grafischer Benutzeroberflächen in Python, bot eine einfache Möglichkeit, ein flexibles Raster zu erstellen und beliebig mit Werten zu füllen.
+
+==== Algorithmus zur RegEx-Generierung
+===== Allgemeiner Generierungsansatz
+
+Um zufällige RegEx anzeigen zu können, war ein Algorithmus erforderlich, der diese generieren konnte. Statt von Grund auf einen eigenen Algorithmus zu entwickeln, entschied ich mich dafür, einen bereits vorhandenen Open-Source-Algorithmus zu verwenden und ihn anzupassen bzw. zu erweitern. Dafür habe ich einen den Algorithmus von link:https://github.com/bcaluneo/Regex-Crossword[bcaluneo] auf GitHub verwendet und angepasst. Dieser Algorithmus nimmt eine Zeichenkette entgegen und generiert auf dieser Basis reguläre Ausdrücke. Da dieser jedoch nicht meinen Anforderungen entsprach und sehr statisch generierte, musste ich einige Änderungen vornehmen. So musste ich diesen zuerst von Typescript in Python umschreiben, sowie die Vielfalt und Häufigkeiten anpassen.
+
+Der Algorithmus funktioniert folgendermaßen:
+
+. *Ein Raster wird mit zufälligen Buchstaben und Zahlen gefüllt* +
+image::fuellenDesRasters.jpg[raster,500,400] +
+(_hier beispielhaft nur Buchstaben_)
+
+. *Spalten und Zeilen werden als Zeichenketten kombiniert z.B hier 1. Zeile: WTRKP* +
+image::RE_zeilenExtrakt.jpg[zeile, 500,100] +
+Die Zeichenkette wird dem Algorithmus übergeben, der für jedes Zeichen einen zufälligen und passenden regulären Ausdruck generierte. Dabei war es wichtig sicherzustellen, dass die Überschneidung von Zeilen- und Spaltenausdrücken funktioniert. Dies wurde erreicht, indem die Zeichenketten nacheinander dem Algorithmus übergeben wurde, wodurch für jedes Zeichen im Raster ein entsprechender RegEx-Ausdruck generiert wurde. Die Generierten Ausdrücke werden dann an das Frontend gesendet, wo sie dann als Zeilen- und Spaltenköpfe angezeigt werden.
+
+===== Umsetzung Algorithmus
+
+Der Algorithmus setzt sich aus mehreren einzelnen Funktionen zusammen, die verschiedene Arten von RegEx generieren. Jede Funktion erhält ein Zeichen als Parameter und erzeugt einen regulären Ausdruck, der dieses Zeichen enthält.
+
+[source, Python, id="generate_character_set"]
+----
+    def generate_character_set(char):
+
+    num_chars_before = random.randint(0, 6)  
+    num_chars_after = random.randint(0, 6)  
+
+    start_char = chr(max(ord('A'), ord(char) - num_chars_before))
+    end_char = chr(min(ord('Z'), ord(char) + num_chars_after + 1))
+
+    return f'[{start_char}-{end_char}]'
+----
+In diesem Ausschnitt der `generate_character_set()`-Funktion wird ein Zeichenbereich generiert, beispielsweise [T-U]. Dieser Zeichenbereich umfasst alle Zeichen zwischen T und U in der ASCII-Zeichenfolge.
+
+[source, Python]
+----
+    def generate_regex(word):
+        result = ""
+        skip = False
+        regexList = []
+        
+        for i in range(len(word)): 
+            if skip:
+                skip = False
+                continue
+            roll = random.random()
+            if roll < 0.12:
+                regexPart = generate_negated_character_set(word[i])
+            else:
+                roll = random.random()
+                if roll < 0.25:
+                    if word[i].isnumeric():
+                            regexPart=generate_number_range(int(word[i]))                 
+                    else:     regexPart = generate_character_set(word[i])
+----
+In diesem (unvollständigem) Ausschnitt der `generate_regex()`-Funktion wird eine Zahl zwischen 0 und 1 gewürfelt und basierend auf der gewürfelten Zahl die verschiedenen Funktionen zum Generieren von einzelnen RegEx-Teilen aufgerufen (siehe <<generate_character_set>>). Somit wird für jede Zeichenkette ein gemischter regulärer Ausdruck gebaut.
+
+Die folgenden RegEx-Arten können nach aktuellem Stand von dem Algorithmus generiert werden:
+
+* `.` -> Ein beliebiges Zeichen
+* `?` -> Zeichen(gruppe) vor dem Fragezeichen ist optional und darf maximal einmal vorkommen
+* `[A|B]` -> "Oder": Nur eins der beiden Zeichen darf vorkommen
+* `[ABC]` -> Zeichenauswahl: Ein der eingeklammerten Zeichen darf vorkommen
+* `[^ABC]` -> Negation, alle Zeichen zulässig bis auf die in den Klammern stehenden
+* `[A-D]` -> Zeichenbereich, ein Zeichen im Bereich des in den Klammern stehendem   Ausdrucks kommt vor
+* `[0-9]` -> Zahlenbereich, eine Zahl in dem Bereich kommt vor
+
+
+==== Integrieren in Aladin und Carpet
+
+*Erklärung der Dateien* +
+image::RE_filetree.jpg[] 
+
+* `JSONFiles` -> Dies ist der Ordner, in welchem die JSON Dateien zum Datenaustausch zwischen Frontend und Backend gespeichert werden. 
+
+* `regexBackend.py` -> In dieser Datei befinden sich der Algorithmus zur Generierung der regulären Ausdrücke sowie die Funktion zum Validieren der Nutzereingaben 
+
+* `regexFrontend.py` -> Diese Datei übernahm ursprünglich das Erstellen der Oberfläche, in der mein Puzzle in einem alleinstehendem Programm angezeigt werden kann. Die Elemente sind noch vorhanden und werden noch generiert, da diese zum Funktionieren benötigt werden. Angezeigt werden diese Elemente jedoch nicht mehr, sondern es wird nur sichergestellt, dass die richtigen Zeichenketten an den Algorihtmus zum Geneieren der RegEx geschickt werden. 
+
+* `regexWrapper.ts` -> In dieser Datei befindet sich mein Typescript-Wrapper, welcher sicherstellt, dass mein Python Code in ALADIN aufgerufen wird. Diese Datei dient als Schnittstelle zwischen ALADIN und mein Python-Progamm. 
+
+* `validateRegex.py` -> Hier wird die benötigte Validierungsmatrix erstellt, welche benötigt wird, um die Nutzereingaben vom Frontend farblich hervorzuheben, nachdem diese in meiner `regexBackend.py` Datei geprüft wurden.
+
+*Typescript*: +
+Da Aladin und Carpet mittels Typescript geschrieben wurden, musste ich Anpassungen treffen, sodass mein Python-Programm integriert werden konnte, ohne die Funktionsweise ALADINs zu beeinträchtigen. Dafür nutzte ich einen Wrapper, der in Typescript geschrieben war, um mein Python-Programm mit den vom Nutzer eingegebenen Konfigurationsparametern über Konsolenbefehle aufzurufen. Diesen Ansatz benutze ich um mein Puzzle anfangs zu generieren und nach einer Nutzereingabe zu validieren.
+
+
+Hier beispielhaft ein Ausschnitt der Wrapper-Funktion zum Generieren des Puzzles:
+[source, Typescript]
+----
+export function generateRegexPuzzle(regexData: RegexData) {
+  try {
+
+    const { columns, rows, seed } = regexData;
+    const columnCount = columns;
+    const rowCount = rows;
+    const userseed = seed || Math.floor(Math.random() * 10000);
+
+    const pythonScriptPath = 'src/Tasks/RegExp/regexFrontend.py';
+    const argumentsToPythonScript = [columnCount.toString(), rowCount.toString(), userseed.toString()];
+    runPythonScript(pythonScriptPath, argumentsToPythonScript);
+    ...
+    }
+...
+}
+----
+Das Python-Programm `regexFrontend.py` wird über einen Konsolenaufruf mit den vom Nutzer eingegebenen Parametern für Spalten (Columns), Zeilen (Rows) und den Seed gestartet.
+
+*JSON*: +
+Da reguläre Ausdrücke viele Sonderzeichen enthalten und dies das Umschicken zwischen Frontend und Backend erschwerte, musste ich vorübergehend JSON-Dateien verwenden, damit Backend und Frontend kommunizieren können. So werden Nutzereingaben sowie Konfigurationsparameter in JSON-Dateien geschrieben und an anderer Stelle ausgelesen. Dies ist nicht der optimale Weg, jedoch eine vorübergehende Lösung, damit die Kommunikation zwischen Python und Typescript, sowie Backend und Frontend fehlerfrei funktionieren. +
+So existieren aktuell vier vorübergehende JSON Dateien: 
+
+image::RE_jsonfiles.jpg[]
+
+* `labels.json` -> Datei in welche Zeilen- und Spaltenregex geschrieben werden
+* `regex_lists.json` -> Datei, in welche Zeilen- und Spaltenregex als Liste geschrieben werden, die durch die Validierungsfunktion ausgelesen und zur Überprüfung verwendet werden kann
+* `userData.json` ->  Datei, die jede Nutzereingabe in Matrixform abspeichert, sodass eine Validierungsmatrix basierend auf den Nutzereingaben erstellt werden kann
+* `validationmatrix.json` -> Datei, die die Validierungsmatrix erhält sodass durch das Frontend das färben der Felder vorgenommen werden kann.
+
+
+===== Validierung
+Zum Validieren nutzte ich eine Einfache Funktion: `check_input()`, die das vom Nutzer eingegebenes Zeichen, sowie den zugehörigen Zeilen- und Spaltenregex als Parameter übermittelt bekommt. Auf Basis dieser wird geprüft, ob das Nutzerzeichen beiden RegEx genügt und entprechend ein _True_ oder _False_ zurückgegeben.
+[source, Python]
+----
+def check_input(user_input, regexRow, regexColumn):
+    flags = re.IGNORECASE  
+    match_column = re.match(regexColumn, user_input, flags)
+    match_row = re.match(regexRow, user_input, flags)
+      
+    if match_column is not None and match_row is not None:
+        if match_column.group() == user_input and match_row.group() == user_input:
+            return True  
+    return False
+----
+
+Daraus wird im Folgenden in `validateRegex.py` eine Matrix erstellt, die zu jedem Feld im Raster entweder ein _True_, _False_ oder _NULL_ enthält. True und False,  falls die Nutzereingabe jeweils richtig oder falsch ist und NULL, für noch offene Felder, ohne eingebenen Wert. Basierend auf der erstellten Matrix werden dann die Eingabefelder im Frontend rot, grün oder weiß gefärbt. +
+[source, Python]
+----
+def createValidationMatrix(userData,regexListAllRows, regexListAllColumns):
+    matrixColumns = len(userData[0]) if userData else 0
+    matrixRows= len(userData)
+    validationmatrix = [[None for _ in range(matrixColumns)] for _ in range(matrixRows)]
+    for row_index in range(matrixRows):
+        for col_index in range(matrixColumns):
+            user_input = userData[row_index][col_index]
+            
+            if user_input is None:
+                validationmatrix[row_index][col_index] = None
+            elif rb.check_input(user_input, regexListAllColumns[col_index][row_index], regexListAllRows[row_index][col_index]):
+                validationmatrix[row_index][col_index] = True
+            else:
+                validationmatrix[row_index][col_index] = False
+    return validationmatrix
+----
+Bei einem 3 x 3 - Puzzle könnte die Validierungsmatrix dann folgendermaßen aussehen:
+[source, JSON]
+----
+[[false, true, false], 
+[null, null, null], 
+[null, null, null]]
+----
+
+==== Schwierigkeiten und Probleme der Umsetzung
+
+Das Generieren von regulären Ausdrücken ist eine sehr komplexe Aufgabe und obwohl das Projekt schlussendlich erfolgreich war und das Rätsel fast Fehlerfrei läuft, gibt es einige Funktionen, die nicht bzw. schwer umgesetzt werden konnten.
+
+*Generierung komplexer RegEx*
+
+Ziel war es, eine breite Palette von RegEx-Arten in das Puzzle zu integrieren. Dazu erweiterte ich den Algorithmus während des Projekts kontinuierlich um weitere RegEx-Varianten. So konnte ich in meinem Prototypen viele weitere Arten generieren.
+Die neue Vielfalt an Ausdrücken führte jedoch aufgrund der Vielzahl an Sonderzeichen zu Kombabilitätsproblemen, wodurch das Programm nicht mehr wie erwartet funktionierte. Da ich bisher keine Lösung für dieses Problem gefunden habe, insbesondere unter Verwendung von JSON-Dateien als Kommunikationsweg zwischen Backend und Frontend, musste ich bei der Umsetzung auf einfachere RegEx-Arten zurückgreifen.
+
+*Bestehende Bugs*
+
+Bei der Integration von dem Puzzle in ALADIN kamen vereinzelt Fehler auf, deren Ursache unklar waren und somit nicht behoben werden konnten. Dazu gehörte der Bug welcher die erste Nutzereingabe in dem Rätsel überschreibt, da bei dieser, aus bisher unerklärlichem Grund, zwei Anfragen gesendet wurden.
+
 === Ergebnisse
+==== Parameter Konfiguration
+
+image::RE_konfiguration.jpg[konfiguration, 250, 200]
+
+In diesem Fenster kann der Nutzer entscheiden, wie viele Zeilen und Spalten sein generiertes Rätsel haben soll. Zusätzlich gibt es die Möglichkeit einen bestimmten Seed einzugeben, durch welchen ein bestimmtes Puzzle reproduzierbar ist.
+
+==== RegEx Puzzle
+
+image::RE_regexPuzzle.jpg[puzzle, 250, 200]
+
+Die Konfigurationsparameter werden vom Backend verarbeitet, der Algorithmus generiert RegEx basierend auf dem Seed und das Rätsel wird schlussendlich angezeigt. Der Nutzer kann nun jedes Feld ausfüllen
+
+==== Validierung der Nutzereingaben 
+Die Validierung der Nutzereingaben erfolgt in Echtzeit, das heißt, sobald der Nutzer ein Zeichen in ein Feld einträgt, wird dieses vom Backend auf Korrektheit geprüft. Entsprechend wird das Eingabefeld grün markiert, wenn die Eingabe korrekt ist, und rot, wenn sie falsch ist. Hierfür nutzte ich die Python Regex-Bibliothek re, mit deren Hilfe ich durch alle Nutzereingaben iteriere und diese jeweils gegen die dazugehörigen Zeilen- und Spaltenregex prüfe. Dies ermöglicht es, dem Nutzer sofort Rückmeldung zu geben, ob das eingegebene Zeichen den Regeln entspricht.
+
+image::RE_validierung.jpg[validierung, 250, 200]
 
 === Ausblick
+
+*Hinweise und Hilfestellung zur Aufgabe:*
+
+Eine wesentliche Verbesserung besteht in der Bereitstellung von Hilfestellungen und einer Legende zu den verschiedenen RegEx-Typen, um auch Nutzern mit geringen Vorkenntnissen beim Lösen des Rätsels zu helfen. Außerdem ist es sinnvoll, eine klare Aufgabenstellung hinzuzufügen, damit die Erwartungen an den Nutzer eindeutig sind.
+
+*Erweiterung der Komplexität und Vielfalt der RegEx:*
+
+Derzeit deckt der Algorithmus nur eine begrenzte Anzahl von RegEx-Typen ab. Dies könnte in Zukunft erweitert werden, um die Vielfalt zu erhöhen. Obwohl ich einige weitere RegEx-Arten ausprobiert habe, die die Komplexität erhöhen würden, führte die Vielfalt an verwendeten Sonderzeichen zu Kompatibilitätsproblemen. Daher blieb ich bei der einfacheren Alternative.
+
+*Eindeutigkeit der Lösung:*
+
+Eine weitere Möglichkeit, die Schwierigkeit des Rätsels zu erhöhen, wäre, sicherzustellen, dass das Puzzle nur eine Lösung hat und nicht, wie derzeit, mehrere Lösungen zulässig sind. Dies ist jedoch eine komplexe Aufgabe, die sorgfältig durchdacht werden muss, um den Lösungsraum weiter einzuschränken. Mögliche Ansätze könnten die Einführung eines Zeichenpools sein, aus dem die Nutzer festgelegte Zeichen zur Lösung verwenden müssen. Außerdem könnte der Algorithmus so angepasst werden, dass er nur ein bestimmtes Zeichen pro Feld zulässt, indem immer das Komplementär eines RegEx gebildet wird. Zum Beispiel könnte das Komplementär von [ABC] [^A-B] lauten. Dies sind einige Möglichkeiten, um die Schwierigkeit des Rätsels in Zukunft weiter zu erhöhen.
 

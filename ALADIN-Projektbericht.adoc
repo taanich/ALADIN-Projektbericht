@@ -75,7 +75,12 @@ Ein weiterer Aspekt war die Einzelarbeit im Projektseminar, da Probleme häufig 
 Trotz der Herausforderungen war die Teilnahme am ALADIN Projektseminar eine wertvolle Erfahrung. Die gewonnenen Erkenntnisse werden mir bei zukünftigen Projekten von großem Nutzen sein.
 
 === Alessandra Ruff
-// TBD
+Als Studierender konnte ich mich leicht mit dem Problem des Mangels an Übungsaufgaben und der unzureichenden Vorbereitung auf Klausuren identifizieren. Daher hielt ich es für eine gute Idee, ein Tool zu entwickeln, das automatisch Übungsaufgaben generieren kann und sowohl Studierende als auch Professoren unterstützt. Insbesondere das Thema regulärer Ausdrücke bereitete mir schon während meines Studiums Schwierigkeiten. Ich hatte jedoch weder die Ausdauer noch die Ressourcen, um mich intensiv damit zu beschäftigen. Daher erschien mir das Projekt als ideale Lösung, um mein fachliches Verständnis von RegEx zu verbessern und gleichzeitig wertvolle Erfahrungen im Bereich von Softwareprojekten und ihrer Organisation zu sammeln.
+
+Darüber hinaus konnte ich durch die Freiheit, welche Technologien verwendet werden sollen, meine Kenntnisse in Python weiter ausbauen. Ich habe gelernt, wie komplex die Aufgabe sein kann, viele verschiedene Programme in ein großes Framework zu integrieren, und wie wichtig eine umfassende Dokumentation beim Programmieren ist. Dabei hat mir leider teilweise die Dokumentation zur ALADIn gefehlt, wodurch einige Aufgaben besonders bei der Integration als sehr schwierig bzw. teilweise nicht ohne Hilfe möglich waren. Leider fehlte mir teilweise die Dokumentation zu ALADIN, wodurch einige Aufgaben, insbesondere bei der Integration, als sehr schwierig oder teilweise nicht ohne Hilfe lösbar waren. Dennoch gelang es mir, einen neuen Aufgabentyp zu schaffen, der hoffentlich Studierenden helfen wird, ihre Kenntnisse in regulären Ausdrücken zu vertiefen.
+
+Ich glaube, dass ALADIN in Zukunft großes Potenzial hat und auf verschiedene Teilbereiche erweitert werden kann. Deshalb bin ich sehr dankbar, Teil dieses Projekts gewesen zu sein und meinen eigenen Beitrag leisten zu dürfen.
+
 === Julius Wyrembek
 
 Rückblickend betrachtet kann ich sagen, dass es ein sehr gutes Gefühl ist, positives Feedback von seinem Auftraggeber zu bekommen, nachdem man sich lange mit einer Aufgabe befasst hat. Während des gesamten Arbeitens an dem Projekt ist mir aufgefallen, dass es viel angenehmer ist, ein Programm mit realem Sachbezug zu entwickeln, bei dem man ständig Rückmeldung bekommt. Dies war möglich durch eine gute Strukturierung des Projektes, bei der wöchentliche Treffen durchgeführt wurden, um den aktuellen Stand der einzelnen Projekte vorzutragen. 
