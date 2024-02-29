@@ -126,7 +126,8 @@ Die folgenden RegEx-Arten können nach aktuellem Stand von dem Algorithmus gener
 
 ==== Integrieren in Aladin und Carpet
 
-*Erklärung der Dateien* +
+*Erklärung der Dateien* 
+
 image::RE_filetree.jpg[] 
 
 * `JSONFiles` -> Dies ist der Ordner, in welchem die JSON Dateien zum Datenaustausch zwischen Frontend und Backend gespeichert werden. 
