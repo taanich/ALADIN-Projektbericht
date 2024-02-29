@@ -8,6 +8,7 @@ include::../file-attributes.inc.adoc[]
 
 Die Aufgabe und das dazugehörige Programm wurden in Zusammenarbeit mit Prof. Dr. Teichert der Technischen Universität Chemnitz entwickelt. Maßstäbe und Begrenzungen der Aufgabenstellung richten sich inhaltlich nach seinen Anforderungen und Wünschen.
 
+image::CH_AufgabenstellungChemie.png[]
 === Aufgabenbeschreibung
 
 Die Aufgabe erforderte es, ein Programm zu erstellen, welches aus einer endlichen, vorgegebenen Liste zufällig Stoffe auswählte und diese unter Einhaltung der chemischen Regeln in einer Reaktion darstellte. Diese Reaktion basiert auf dem Konzept der elektrophilen aromatischen Substitution und das Ziel besteht darin, dass der Student reaktionsbeschreibende Eigenschaften nennen und das fertige Reaktionsprodukt in einem implementierten Editor zeichnen muss. Diese zwei Aufgabenteile sollen, anschaulich und intuitiv in der Verwendung, dargestellt werden.
