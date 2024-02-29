@@ -5,16 +5,67 @@ include::../file-attributes.inc.adoc[]
 == Aufgabentyp - {cluster}
 
 === Aufgabenstellung
+Die Aufgabe für das Projektseminar war es, ein Programm zur automatisierten Generierung von Aufgaben für die Hierarchische Clusteranalyse zu erstellen. Das Ziel bestand darin, dass die Studierenden die Durchführung einer hierarchischen Clusteranalyse üben können und Lehrende gleichzeitig ein Tool zu Verfügung gestellt bekommen, mit welchem Sie beliebig viele Aufgaben für die Studierenden erstellen können. Das Programm soll sowohl die Aufgabenstellung für die hierarchische Clusteranalyse, als auch ein Beispieldatenset generieren. Darüber hinaus soll die Ähnlichkeitsmetrik und das Linkkriterium wählbar sein. Aus Output soll ein Dendrogramm ausgeben werden.
+
+Folgend ein Beispiel für eine mögliche Aufgabenstellung:
+
+In dieser Aufgabe sollen Sie zeigen, dass Sie die hierarchische Clusteranalyse verstanden haben und diese anwenden können.
+Sie erhalten eine Sammlung von Datenpunkten, für die Sie die Analyse durchführen sollen.
+
+.Table1
+[width="80%",options="header"]
+|===
+|Name Datenpunkt |Position X-Achse |Position Y-Achse
+|A | 2 | 3
+|B | 5 | 2
+|C | 5 | 3
+|D | 1 | 4
+|E | 4 | 5
+|===
+
+1.	Zeichnen Sie im ersten Schritt die Datenpunkte in ein Koordinatensystem als visuelle Hilfe ein.
+2.	Berechnen Sie nun im nächsten Schritt die einzelnen Distanzmatrizen bis zu einer 2×2 Matrix und geben Sie Ihre Lösung an. Nutzen Sie für die Berechnung der Distanzen zwischen den einzelnen Datenpunkten die Euklidische Distanz als Berechnungmethode sowie als Linkkriterium Single-Linkage
+
 
 === Aufgabenbeschreibung
 
 === Anforderung
+Aus diesen Gegebenheiten ergeben sich folgende Anforderungen an die Software:
+-	Zufällige Generierung von Datensets
+-	Umsetzung mindestens einer Methode zur Berechnung der Distanz
+-	Umsetzung mindestens eines Linkkriteriums
+-	Generierung der Aufgabe sowie der Lösung (Schrittweise inkl. aller Zwischenschritte)
+-	Verwendung realistischer Wertebereiche
+-   Ausgabe eines Dendrogramms
+
 
 === Planung
 
 === Technische Umsetzung
+====Entwicklung des Proof of Concept
+Um sicherzustellen, dass die gestellte Aufgabe mittels der ALADIN- & CARPET Frameworks gelöst werden kann, wurde im ersten Schritt ein Proof of Conecpt (nachfolgend mit POC abgekürzt) erstellt, um die Machbarkeit zu überprüfen. Der POC bestand dabei aus einem Python Script, welche über ein CLI bedient wird. Die Anforderungen an den POC waren vor allem die Abbildung des Algorithmus zum Schrittweisen lösen der hierarchischen Clusteranalyse. Im ersten POC wurde sich, um bestehende Bibliotheken nicht neu zu scheiben und die zu Verfügung stehende Zeit effizient zu nutzen, die Python Bibliothek „scipy“ gewählt, welche bereits Methoden zur Durchführung der hierarchischen Clusteranalyse bietet. Nachdem ca. 75% des POC fertig gestellt waren musste ich jedoch feststellen, dass die verbleibenden 25% nur zu realisieren wären, wenn ich die „scipy“ Bibliothek forken und stark modifizieren würde. Diese Option schloss ich jedoch aus, da absehbar war, dass in Zukunft keine Ressourcen zum maintainen des Forks zu Verfügung stehen würden. Daraufhin verwarf ich einen Großteil des POC und entwickelt selbst ein skript mit allen notwendigen Methoden, um die hierarchische Clusteranalyse durchzuführen und die dabei verwendeten Algorithmen zu verwenden zu können.
+Da bei der schriftlichen Lösung hierarchischen Clusteranalyse pro Iterationsschritt eine Distanzmatrix erstellt und dabei die Distanzen zwischen den einzelnen Datenpunkten berechnet werden, entschied ich mich dazu, diese Berechnung genauso in dem Python Script abzubilden. So war es mit möglich, Distanzmatrizen für alle Iterationsschritte zu erstellen. Die Python Bibliothek „scipy“ bietet im Vergleich dazu nur die Möglichkeit, ein Dendrogramm zu erstellen, aber nicht sich schrittweise diese Distanzmatrizen ausgeben zu lassen. Dies war der Hauptpunkt, weshalb ich mich gegen die Bibliothek entschied und die Funktionalität vollständig selbst entwickelte.
+Der zweite POC war somit in der Lage, auf Basis eines vorher zu definierenden Datensets die hierarchische Clusteranalyse durchzuführen und die Lösung für jede Iteration und somit für jede Distanzmatrix zu berechnen. Darüber hinaus setze ich im POC auch direkt die Generierung eines Dendrogramms auf Grundlage der zuvor durchgeführten Berechnungen um.
+Mittels des POC war es mir somit möglich zu zeigen, dass sich die schriftliche Lösung der hierarchischen Clusteranalyse vollständig abbilden lässt. Gelichzeitig bildete der entwickelte POC die Grundlage für die drauf folgende Entwicklung eines Programms zur Durchführung der Clusteranalyse mittels ALADIN.
 
+====Allgemeine Architektur
+Die Software besteht einerseits aus dem ALADIN Framework, welches das Backend der Anwendung bildet, sowie dem CARPET Framework, welche ein Frontend in Form einer graphischen Weboberfläche zu Verfügung stellt. 
 === Ergebnisse
+Die gesetzten Ziele wurden soweit vollständig erreicht. Es lässt sich somit sagen, dass das Programm zur Generierung von Aufgaben zur hierarchischen Clusteranalyse funktioniert und bereit für den Praxiseinsatz ist.
+Nachfolgend ein Vergelich der IST- und SOLL Stände:
+
+.Table2
+[width="80%",options="header"]
+|===
+|Anforderung (SOLL) |Aktueller Stand (IST)
+|Zufällige Generierung von Datensets | gelöst (mittels in Python umgesetzer Generierungsfunktion)
+|Umsetzung mindestens einer Methode zur Berechnung der Distanz | gelöst (mittels in Python umgesetzer Berechnungsfunktion)
+|Umsetzung mindestens eines Linkkriteriums | gelöst (mittels in Python umgesetzer Berechnungsfunktion)
+|Generierung der Aufgabe sowie der Lösung (Schrittweise inkl. aller Zwischenschritte) | gelöst (mittels in Python umgesetzer Berechnungsfunktion)
+|Verwendung realistischer Wertebereiche | gelöst (mittels in Eingabevalidierung in CARPET sowie nochmals in Python)
+|Ausgabe eines Dendrogramms | gelöst (aktuell mittels scipy Bibliothek, Ausgabe eines Bildes mit einem Dendrogramm möglich, im nächsten Schritt muss das zeichnen und validieren des Dendrogramms in CARPET umgesetzt werden)
+|===
+
 
 === Ausblick
-
+Eine Möglichkeit das aktuelle Programm zu erweitern wäre, die bereits bestehende Komponente in ALDIN zum Erstellen von Diagrammen der DOT Notation zu modifizieren, so dass es Nutzern ermöglicht wird Dendrogramme per Drag&Drop zu erstellen und anschließend mit der Musterlösung zu vergleichen. So wäre es möglich den Prozess der schriftlichen Lösung einer Durchführung einer hierarchischen Clusteranalyse vollständig digital abzubilden und direkt kontrollieren zu lassen. Aufgrund der begrenzten Zeit war es mir nicht möglich, dieses Feature zu implementieren. Es ist jedoch meiner Meinung nach mit dem aktuellen Stand des Programms eine sehr gute Grundlage für die Erweiterung von genau solchen Features geschaffen wurden. Vor allem im Hinblick auf die eigentliche Aufgabenstellung, wurden die Anforderungen übererfüllt und bieten nun eine sehr gute Grundlage für die Implementierung weiterer Features. Ein weiteres dieser Features könnte beispielsweise auch die Umsetzung weiterer Ähnlichkeitsmetriken und Linkkriterien sein. Die in der Lehre auf häufigsten verwendeten wurde bereits umgesetzt, jedoch kann durch die Erweiterung um weitere Metriken es ambitionierten Studenten ermöglicht werde, auch diese zu üben und zu verinnerlichen.
