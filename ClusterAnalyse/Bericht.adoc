@@ -50,6 +50,78 @@ Mittels des POC war es mir somit möglich zu zeigen, dass sich die schriftliche 
 
 ====Allgemeine Architektur
 Die Software besteht einerseits aus dem ALADIN Framework, welches das Backend der Anwendung bildet, sowie dem CARPET Framework, welche ein Frontend in Form einer graphischen Weboberfläche zu Verfügung stellt. 
+
+Aufgrund des zu vor umgesetzten POC mittels Python entschied ich mich dazu, dass das ALADIN Framework den bereits vorhanden Python Code mittels CLI aufruft, und die Daten, welche das Python Script zurückliefert, nimmt und anschließend verarbeitet. So war es mir möglich ein Großteil des Codes in Python zu schreiben und nur für den Datenaustausch zwischen dem Python Script und ALADIN das ALADIN Framework mittels Typescript zu modifizieren. Dazu entwickelte ich eine neue Komponente inkl. Aufruf und Verarbeitungsprozedere in Typescript, mit welcher es mir möglich war, dass ALADIN nun Python Scripte ausführen, Daten an das Script zu übergeben und die Daten, welche das Python Script zurück gibt, zu lesen.
+Die Umsetzung dieser Funktionalität sieht wie folgt aus:
+
+[source, Typescript]
+---
+import { exec } from "child_process";
+import fs from "fs";
+const path = require("path");
+
+function runPythonScript(scriptPath: string, args: any): Promise<string> {
+	try {
+		return new Promise((resolve, reject) => {
+			const command = `python3 ${scriptPath} ${args.join(" ")}`;
+			console.log(command);
+			exec(command, (error, stdout, stderr) => {
+				if (error) {
+					reject(error.message);
+					return;
+				}
+				if (stderr) {
+					reject(stderr);
+					return;
+				}
+				resolve(stdout);
+			});
+		});
+	} catch {
+		console.log("Error");
+	}
+}
+
+export async function clusterAnalysisMain(parameter: any) {
+	let result = { foo: "bar" };
+    console.log("PARAMETER:");
+	console.log(parameter);
+	try {
+		let pythonScriptPath = "clusterAnalysis.py";
+		pythonScriptPath = path.join(__dirname, pythonScriptPath);
+		const argumentsToPythonScript = [...Object.values(parameter), ...parameter["nodeRange"]];
+		(await runPythonScript(pythonScriptPath, argumentsToPythonScript)) as any;
+		result = JSON.parse(fs.readFileSync(path.join(__dirname, "data.json"), "utf-8"));
+        console.log(result);
+	} catch (error) {
+		console.error("Error running Python script:", error);
+	}
+	return result;
+}
+---
+
+Über diese Komponente wird das Python Script mit den entsprechenden Parametern, welches es aus dem Aufruf aus dem Frontend (durch CARPET) mitbekommt, aufgerufen. Das Script führt die Clusteranalyse Schritt für Schritt durch und gibt die Daten zur Abfrage der Nutzereingabe sowie die Ergebnisse zurück an da ALADIN Framework. Das ALADIN Framework wiederrum sendet die Daten weiter an das Frontend, in welchem die Daten genutzt werden um die Weboberfläche zu generieren und es dem Nutzer zu ermöglichen seine Lösungen einzugeben und direkt kontrollieren zu lassen. Der Kontrollmechanismus funktioniert dabei mittels Javascript, d.h., dass die Daten zur Lösung bereits an das Frontend mitgeben werden und während der Nutzer die Lösung eingibt keine weitere Kommunikation zwischen Frontend und Backend stattfinden muss.
+
+Die Oberfläche, die der Nutzer vorfindet, bevorer die Aufgabe lösen kann sieht wie folgt aus:
+
+image::CA_Oberflaeche1.png[title="Ansicht ohne Auswahl & Eingabe"]
+
+Hier hat er die Wahl, ob er sich entprechende Hilfen anzeigen lassen möchte oder nicht. Die Implementierung von Hilfen war nicht im ursprünglichen Scope enthalten, jedoch wurde in Abstimmung mit Herrn Paul Christ entschieden, dass es eine durchaus nützliche Funktionalität darstellt und deshalb mit implementiert.
+Nachdem der Nutzer die für ihn und seinen Anwendungsfall passenden Werte eingebeben bzw. ausgewähl hat, kann er auf den "Generieren" Button klicken, eine Aufagbe generieren zu lassen. Dabei wird ihm dirket ein Streudiagramm angezeigt, so dass er sehen kann, ob die generierte Aufgabe seinen Anforderungen genügt.
+
+image::CA_Oberflaeche2.png[title="Ansicht mit Auswahl & Eingabe sowie generierten Streudiagramm"]
+
+Insofern dies zutrifft, kann der Nutzer die nächste Seite aufrufen oder eine neue Aufgabe generieren.
+Sofern der Nutzer sich entscheidet die Aufgabe zu lösen, sieht die Oberfläche wie folgt aus:
+
+image::CA_Oberflaeche2.png[title="Ansicht Lösungsoberfläche"]
+
+Dort kann er nun noch einmal die Aufgabenstellung lesen und die Aufgabe lösen, sowie seine Lösungen in die Eingabemaske eintragen und direkt sehen, ob seine Lösungen richtig waren oder er die Berechnung aufgrund eines Fehlers nochmal erneut durchführen muss.
+
+image::CA_Oberflaeche2.png[title="Ansicht Lösungsoberfläche mit Eingabe in Distanzmatrix"]
+
+Insofen die eingegebenen Lösungen richtig sind, werden diese grün hinterlegt.
+
 === Ergebnisse
 Die gesetzten Ziele wurden soweit vollständig erreicht. Es lässt sich somit sagen, dass das Programm zur Generierung von Aufgaben zur hierarchischen Clusteranalyse funktioniert und bereit für den Praxiseinsatz ist.
 Nachfolgend ein Vergelich der IST- und SOLL Stände:
@@ -59,13 +131,14 @@ Nachfolgend ein Vergelich der IST- und SOLL Stände:
 |===
 |Anforderung (SOLL) |Aktueller Stand (IST)
 |Zufällige Generierung von Datensets | gelöst (mittels in Python umgesetzer Generierungsfunktion)
-|Umsetzung mindestens einer Methode zur Berechnung der Distanz | gelöst (mittels in Python umgesetzer Berechnungsfunktion)
+|Umsetzung mindestens einer Methode zur Berechnung der Distanz | gelöst (mittels in Python umgesetzer Berechnungsfunktion), es wurden in Summe sogar zwei Berechnungsmethoden umgesetzt
 |Umsetzung mindestens eines Linkkriteriums | gelöst (mittels in Python umgesetzer Berechnungsfunktion)
 |Generierung der Aufgabe sowie der Lösung (Schrittweise inkl. aller Zwischenschritte) | gelöst (mittels in Python umgesetzer Berechnungsfunktion)
 |Verwendung realistischer Wertebereiche | gelöst (mittels in Eingabevalidierung in CARPET sowie nochmals in Python)
 |Ausgabe eines Dendrogramms | gelöst (aktuell mittels scipy Bibliothek, Ausgabe eines Bildes mit einem Dendrogramm möglich, im nächsten Schritt muss das zeichnen und validieren des Dendrogramms in CARPET umgesetzt werden)
 |===
 
+Die Umsetzung in ALADIN und CARPET stellte den umfangreichsten Teil und zeitintensivsten Teil des Projektsemniars dar. Vor allem das Fehlen einer Dokumentation stellte eine große Herausforderung dar und resultierte darin, dass viel Zeit in das Testen, Ausprobieren und Verstehen des ALADIN & CARPET Frameworks investiert werden mussten. Oft stieß ich auf für mich unlösbare Herausforderungen, welche ich nur dank der Unterstützung von Herrn Paul Christ lösen konnte. Rückblickend betrachtet wäre es für mich deutlich effektiver gewesen, mithilfe einer Dokumentation schneller in die Frameworks einzutachen und so die dadurch verbleibende Zeit in den Ausbau des Tool zu investieren.
 
 === Ausblick
 Eine Möglichkeit das aktuelle Programm zu erweitern wäre, die bereits bestehende Komponente in ALDIN zum Erstellen von Diagrammen der DOT Notation zu modifizieren, so dass es Nutzern ermöglicht wird Dendrogramme per Drag&Drop zu erstellen und anschließend mit der Musterlösung zu vergleichen. So wäre es möglich den Prozess der schriftlichen Lösung einer Durchführung einer hierarchischen Clusteranalyse vollständig digital abzubilden und direkt kontrollieren zu lassen. Aufgrund der begrenzten Zeit war es mir nicht möglich, dieses Feature zu implementieren. Es ist jedoch meiner Meinung nach mit dem aktuellen Stand des Programms eine sehr gute Grundlage für die Erweiterung von genau solchen Features geschaffen wurden. Vor allem im Hinblick auf die eigentliche Aufgabenstellung, wurden die Anforderungen übererfüllt und bieten nun eine sehr gute Grundlage für die Implementierung weiterer Features. Ein weiteres dieser Features könnte beispielsweise auch die Umsetzung weiterer Ähnlichkeitsmetriken und Linkkriterien sein. Die in der Lehre auf häufigsten verwendeten wurde bereits umgesetzt, jedoch kann durch die Erweiterung um weitere Metriken es ambitionierten Studenten ermöglicht werde, auch diese zu üben und zu verinnerlichen.
