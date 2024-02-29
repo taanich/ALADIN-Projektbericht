@@ -56,7 +56,7 @@ Python war die naheliegende Wahl für die Umsetzung, da ich ein Raster erstellen
 ==== Algorithmus zur RegEx-Generierung
 ===== Allgemeiner Generierungsansatz
 
-Um zufällige RegEx anzeigen zu können, war ein Algorithmus erforderlich, der diese generieren konnte. Statt von Grund auf einen eigenen Algorithmus zu entwickeln, entschied ich mich dafür, einen bereits vorhandenen Open-Source-Algorithmus zu verwenden und ihn anzupassen bzw. zu erweitern. Dafür habe ich einen den Algorithmus von link:https://github.com/bcaluneo/Regex-Crossword[bcaluneo] auf GitHub verwendet und angepasst. Dieser Algorithmus nimmt eine Zeichenkette entgegen und generiert auf dieser Basis reguläre Ausdrücke. Da dieser jedoch nicht meinen Anforderungen entsprach und sehr statisch generierte, musste ich einige Änderungen vornehmen. So musste ich diesen zuerst von Typescript in Python umschreiben, sowie die Vielfalt und Häufigkeiten anpassen.
+Um zufällige RegEx anzeigen zu können, war ein Algorithmus erforderlich, der diese generieren konnte. Statt von Grund auf einen eigenen Algorithmus zu entwickeln, entschied ich mich dafür, einen bereits vorhandenen Open-Source-Algorithmus zu verwenden und ihn anzupassen bzw. zu erweitern. Dafür habe ich den Algorithmus von link:https://github.com/bcaluneo/Regex-Crossword[bcaluneo] auf GitHub verwendet und angepasst. Dieser Algorithmus nimmt eine Zeichenkette entgegen und generiert auf dieser Basis reguläre Ausdrücke. Da dieser jedoch nicht meinen Anforderungen entsprach und sehr statisch generierte, musste ich einige Änderungen vornehmen. So musste ich diesen zuerst von Typescript in Python umschreiben, sowie die Vielfalt und Häufigkeiten anpassen.
 
 Der Algorithmus funktioniert folgendermaßen:
 
