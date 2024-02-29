@@ -461,8 +461,6 @@ current_edges_list = [tuple(inner) for inner in modified_nodes_list]
 print(start_decisiontree_task(current_nodes_list, current_edges_list, classes))
 ----
 
-// !!! Evtl. noch Algrithmus mit Mehrfachlösung erklären !!!
-
 *Erläuterung: DataSampler.py* +
 In der DataSampler.py wird die Datengenerierung implementiert. Zunächst wird der originale Datensatz geladen, um neue Stichproben zu generieren. Der Pfad, unter dem der neu generierte Datensatz gespeichert werden soll, wird mit 'src/Tasks/DecisionTrees/datasets/generated_dataset.csv' angegeben.
 
