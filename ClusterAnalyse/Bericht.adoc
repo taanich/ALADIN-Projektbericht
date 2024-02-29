@@ -114,13 +114,15 @@ image::CA_Oberflaeche2.png[title="Ansicht mit Auswahl & Eingabe sowie generierte
 Insofern dies zutrifft, kann der Nutzer die nächste Seite aufrufen oder eine neue Aufgabe generieren.
 Sofern der Nutzer sich entscheidet die Aufgabe zu lösen, sieht die Oberfläche wie folgt aus:
 
-image::CA_Oberflaeche2.png[title="Ansicht Lösungsoberfläche"]
+image::CA_Oberflaeche3.png[title="Ansicht Lösungsoberfläche"]
 
 Dort kann er nun noch einmal die Aufgabenstellung lesen und die Aufgabe lösen, sowie seine Lösungen in die Eingabemaske eintragen und direkt sehen, ob seine Lösungen richtig waren oder er die Berechnung aufgrund eines Fehlers nochmal erneut durchführen muss.
 
-image::CA_Oberflaeche2.png[title="Ansicht Lösungsoberfläche mit Eingabe in Distanzmatrix"]
+image::CA_Oberflaeche4.png[title="Ansicht Lösungsoberfläche ohne Eingabe in Distanzmatrix"]
 
-Insofen die eingegebenen Lösungen richtig sind, werden diese grün hinterlegt.
+image::CA_Oberflaeche5.png[title="Ansicht Lösungsoberfläche mit Eingabe in Distanzmatrix"]
+
+Insofen die eingegebenen Lösungen richtig sind, werden diese grün hinterlegt.x
 
 === Ergebnisse
 Die gesetzten Ziele wurden soweit vollständig erreicht. Es lässt sich somit sagen, dass das Programm zur Generierung von Aufgaben zur hierarchischen Clusteranalyse funktioniert und bereit für den Praxiseinsatz ist.
