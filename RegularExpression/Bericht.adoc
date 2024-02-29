@@ -61,7 +61,7 @@ Um zufällige RegEx anzeigen zu können, war ein Algorithmus erforderlich, der d
 Der Algorithmus funktioniert folgendermaßen:
 
 . *Ein Raster wird mit zufälligen Buchstaben und Zahlen gefüllt* +
-image::fuellenDesRasters.jpg[raster,500,400] +
+image::RE_fuellenDesRasters.jpg[raster,500,400] +
 (_hier beispielhaft nur Buchstaben_)
 
 . *Spalten und Zeilen werden als Zeichenketten kombiniert z.B hier 1. Zeile: WTRKP* +
