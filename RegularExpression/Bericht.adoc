@@ -68,7 +68,8 @@ image::RE_fuellenDesRasters.jpg[raster,500,400]
 
 . *Spalten und Zeilen werden als Zeichenketten kombiniert z.B hier 1. Zeile: WTRKP* 
 
-image::RE_zeilenExtrakt.jpg[zeile, 500,100] +
+image::RE_zeilenExtrakt.jpg[zeile, 500,100]
+
 Die Zeichenkette wird dem Algorithmus übergeben, der für jedes Zeichen einen zufälligen und passenden regulären Ausdruck generierte. Dabei war es wichtig sicherzustellen, dass die Überschneidung von Zeilen- und Spaltenausdrücken funktioniert. Dies wurde erreicht, indem die Zeichenketten nacheinander dem Algorithmus übergeben wurde, wodurch für jedes Zeichen im Raster ein entsprechender RegEx-Ausdruck generiert wurde. Die Generierten Ausdrücke werden dann an das Frontend gesendet, wo sie dann als Zeilen- und Spaltenköpfe angezeigt werden.
 
 ===== Umsetzung Algorithmus
